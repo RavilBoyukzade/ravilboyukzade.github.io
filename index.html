@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hədəf Güzəşt</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+  </head>
+  <body>
+
+    <section class="section">
+      <div class="container">
+        <div class="content">
+          <h1>Hədəfdə "Qəbul-güzəşt" imtahanı Nəsimi filialı</h1>
+          <p>
+            Hədəf STEAM liseyi 2022-2023-cü tədris ili üzrə keçirilmiş "Qəbul-güzəşt" imtahan nəticələrinin hesablanması
+          </p>
+        </div>
+
+        <div class="columns">
+          <div class="column is-three-quarters">
+            <div class="card">
+              <div class="card-content">
+                <form id="loan-form">
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        <p class="number">1</p>
+                        Filialı seçin
+                      </div>
+                    </div>
+                  
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-left">
+                            <button class="btn btn-primary"><a href="abseron.html" style="text-decoration: none; color: white;">Abşeron</a></button>
+                            <button class="btn btn-primary"><a href="#" style="text-decoration: none; color: white;">Nəsimi</a></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        <p class="number">2</p>
+                        Bölməni seçin
+                      </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-left">
+                            <select class="input" id="amount">
+                              <option value="7500">Azərbaycan</option>
+                              <option value="8000">Rus</option>
+                            </select>
+                            <!-- <input class="input" id="amount" type="number" /> -->
+                            <span class="icon is-small is-left">
+                            ₼
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        <p class="number">3</p>
+                        Düzgün cavabarın sayı
+                      </div>
+                    </div>
+                  
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-right" style="display: flex;">
+                            <input class="input" id="percentage" />
+                            <span class="icon is-small is-right">
+                            </span>
+                            <div class="control">
+                              <button class="btn btn-warning" onclick="percent()">Faiz</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        <p class="number">4</p>
+                        Topladığınız faiz nəticəsi
+                      </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-right">
+                            <input class="input" id="interest" />
+                            <span class="icon is-small is-right">
+                              <i class="fa fa-percentage"></i>
+                              
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="control">
+                    <button
+                      class="button is-large is-fullwidth is-primary is-outlined"
+                    >
+                      Hesabla
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="section"> 
+      <h1 class="title ">Hesablanmış nəticələr</h1>
+<div class="columns is-multiline">
+  
+ 
+
+    <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+        <div class="notification is-info has-text">
+          <p id="totalInterest" class="title is-1">%</p>
+          <p class="subtitle is-4">Güzəşt faizi</p>
+        </div>
+      </div>
+
+      <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+        <div class="notification is-link has-text">
+          <p id="totalPayment" class="title is-1">₼</p>
+          <p class="subtitle is-4">Qazandığınız güzəşt</p>
+        </div>
+      </div>
+      <div class="column is-12-tablet is-6-desktop is-3-widescreen">
+        <div class="notification is-primary has-text">
+          <p id="monthlyPayment" class="title is-1">₼</p>
+          <p class="subtitle is-4">Ödəniləcək məbləğ</p>
+        </div>
+      </div>
+
+</div>
+</section>
+
+
+
+  </body>
+
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>
