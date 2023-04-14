@@ -59,6 +59,4 @@ function percent(){
   per=res*100/degree;
   
   document.getElementById("interest").value = per.toFixed(2);
-  console.log(document.getElementById("interest").value);
-  console.log(document.getElementById("degree").value);
 }
