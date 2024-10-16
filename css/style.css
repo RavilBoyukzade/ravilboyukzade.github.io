@@ -1193,7 +1193,8 @@ span {
 .loader-wrapper .loader-section {
   position: fixed;
   top: 0;
-  background: var(--curtain-color);
+  background: #54b689;
+  opacity: 0.8;
   width: 51%;
   height: 100%;
   z-index: 1000;
