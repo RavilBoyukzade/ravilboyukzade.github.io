@@ -486,3 +486,7 @@ document.addEventListener("DOMContentLoaded", function () {
  // Set the copyright element
  document.getElementById("copyright").textContent = `${year}`;
 
+const script = document.createElement('script');
+script.src = 'main.js?v=' + new Date().getTime();  // уникальный параметр на основе времени
+document.head.appendChild(script);
+
