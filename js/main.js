@@ -486,5 +486,5 @@ document.addEventListener("DOMContentLoaded", function () {
  // Set the copyright element
  document.getElementById("copyright").textContent = `${year}`;
 
-window.location.reload(true);
+
 
