@@ -627,7 +627,7 @@ select {
 }
 
 .p1-color {
-  color: rgba(var(--p1), 1);
+  color: #54b689;
 }
 
 .p2-color {
@@ -675,7 +675,7 @@ select {
 }
 
 .bg1-color {
-  background-color: rgba(var(--p1), 1);
+  background-color: #54b689;
 }
 
 .bg2-color {
@@ -978,7 +978,7 @@ span {
 
 ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-thumb {
-  background: rgba(var(--p1), 1);
+  background: #54b689;
 }
 
 ::-webkit-scrollbar-track {
@@ -1109,7 +1109,7 @@ span {
 .title-line {
   width: 4px;
   height: 67px;
-  background-color: rgba(var(--p1));
+  background-color: #54b689;
 }
 
 .title-line2 {
@@ -1318,7 +1318,7 @@ span {
   width: -moz-max-content;
   width: max-content;
   transition: all 0.7s linear;
-  background: rgba(var(--p1));
+  background: #54b689;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
@@ -1378,7 +1378,7 @@ span {
   width: 0;
   height: 0;
   border-radius: 100rem;
-  background: rgba(var(--p1));
+  background:#54b689;
   z-index: -1;
   transform: translate(-50%, -50%);
   transition: width 0.7s ease, height 0.7s ease, top 0.7s ease, left 0.7s ease;
@@ -1585,7 +1585,7 @@ input:-webkit-autofill:active {
   height: 80px;
   margin: auto;
   border-radius: 50%;
-  background-color: rgba(var(--p1), 1);
+  background-color: #54b689;
 }
 .side-menu .side-menu-right .sidebar-profile .thumb {
   width: 32px;
@@ -1606,7 +1606,7 @@ input:-webkit-autofill:active {
   transition: all 0.3s ease-in-out;
 }
 .side-menu .side-menu-right .menu-list ul li:hover {
-  background-color: rgba(var(--p1), 1);
+  background-color: #54b689;
 }
 .side-menu .side-menu-right .menu-list ul li:hover a {
   color: rgba(var(--n11), 1);
@@ -1656,7 +1656,7 @@ input:-webkit-autofill:active {
   width: 478px;
 }
 .banner-content .typing-text {
-  color: rgba(var(--p1), 1);
+  color: #54b689;
 }
 .banner-content .typing-text::after {
   content: "|";
@@ -1674,7 +1674,7 @@ input:-webkit-autofill:active {
 .user-bg {
   width: 325px;
   height: 407px;
-  background-color: rgba(var(--p1), 1);
+  background-color: #54b689;
   animation: rotatedBg 10s infinite linear;
 }
 

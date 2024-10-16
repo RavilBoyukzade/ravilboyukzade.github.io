@@ -4,17 +4,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // main-color change btn
-  const colorBg = localStorage.getItem("primary-color");
-  document.documentElement.style.setProperty("--p1", colorBg);
+  // const colorBg = localStorage.getItem("primary-color");
+  // document.documentElement.style.setProperty("--p1", colorBg);
 
-  const ColorBtn = document.querySelectorAll(".color-btn");
-  ColorBtn.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const color = btn.getAttribute("data-color");
-      document.documentElement.style.setProperty("--p1", color);
-      localStorage.setItem("primary-color", color);
-    });
-  });
+  // const ColorBtn = document.querySelectorAll(".color-btn");
+  // ColorBtn.forEach((btn) => {
+  //   btn.addEventListener("click", () => {
+  //     const color = btn.getAttribute("data-color");
+  //     document.documentElement.style.setProperty("--p1", color);
+  //     localStorage.setItem("primary-color", color);
+  //   });
+  // });
 
   // color swicher
   document.querySelector(".color-switcher").addEventListener("click", () => {
