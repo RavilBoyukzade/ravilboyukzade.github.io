@@ -1077,7 +1077,7 @@ span {
   transition: all 0.3s ease-in-out;
 }
 .social-icon:hover {
-  background-color: rgba(var(--p1), 1);
+  background-color: rgb(84 182 137);
 }
 .social-icon:hover i {
   color: rgba(var(--n11), 1);
@@ -1115,7 +1115,7 @@ span {
 .title-line2 {
   width: 4px;
   height: 38px;
-  background-color: rgba(var(--p1));
+  background-color: rgb(84 182 137);
 }
 
 .page-heading {
@@ -2072,7 +2072,7 @@ input:-webkit-autofill:active {
   height: 160px;
   margin: auto;
   border-radius: 50%;
-  background-color: rgba(var(--p1), 1);
+  background-color: rgb(84 182 137);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -2089,7 +2089,7 @@ input:-webkit-autofill:active {
   transition: all 0.3s ease-in-out;
 }
 .resume-icon:hover .social-icon {
-  background-color: rgba(var(--p1), 1);
+  background-color: rgb(84 182 137);
 }
 .resume-icon:hover .social-icon i {
   color: rgba(var(--n11), 1);
