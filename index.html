@@ -598,8 +598,82 @@
               </div>
             </div>
           </div>
+          
         </section>
         <!-- Featured Projects section end -->
+        <section id="github-projects pt-120 pb-120">
+          <div class="container">
+            <div class="d-flex gap-3 flex-wrap flex-xxl-nowrap justify-content-between align-items-end mb-8 mb-md-15">
+              <div data-aos="zoom-in-left" class="section-heading">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="title-line"></div>
+                  <h2 class="display-four n5-color fw-semibold">
+                    My GitHub projects
+                  </h2>
+                </div>
+                <p class="fs-seven n4-color mt-2 mt-md-4">
+                  Each GitHub project reflects my hands-on approach to solving real-world problems with clean, efficient code. 
+                  From concept to deployment, I craft every solution with precision and care—so you can see not just what 
+                  I build, but how I think.
+                </p>
+              </div>
+              <a data-aos="zoom-in-right" href="https://github.com/RavilBoyukzade" class="primary-btn fw-medium px-3 px-md-6 py-2 py-md-4 rounded-pill d-flex align-items-center gap-2 h-100 text-nowrap">
+                <i class="ph ph-arrow-right"></i>View Github
+              </a>
+            </div>
+            <div id="repos-container"></div>
+          </div>
+          
+        </section>
+        
+        <script>
+          // Замените YOUR_USERNAME на ваш GitHub-юзернейм
+          const username = "RavilBoyukzade";
+          const reposContainer = document.getElementById("repos-container");
+        
+          fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`)
+            .then((res) => res.json())
+            .then((repos) => {
+              reposContainer.innerHTML = repos
+                .map(
+                  (repo) => `
+                  <div class="repo-card">
+                    <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+                    <p>${repo.description || "Описание отсутствует"}</p>
+                    <div class="repo-stats">
+                      <span>⭐ ${repo.stargazers_count}</span>
+                      <span>� ${repo.forks_count}</span>
+                      <span>📅 ${new Date(repo.updated_at).toLocaleDateString()}</span>
+                    </div>
+                  </div>
+                `
+                )
+                .join("");
+            })
+            .catch((err) => {
+              reposContainer.innerHTML = `<p>Не удалось загрузить проекты 😢</p>`;
+              console.error("GitHub API Error:", err);
+            });
+        </script>
+        
+        <style>
+          /* Стили для карточек репозиториев */
+          .repo-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f9f9f9;
+          }
+          .repo-card h3 {
+            margin-top: 0;
+          }
+          .repo-stats {
+            display: flex;
+            gap: 1rem;
+            color: #555;
+          }
+        </style>
         <!-- footer section start -->
         <section class="container d-flex flex-wrap gap-3 gap-md-6 justify-content-center justify-content-sm-between align-items-center pb-4 pb-md-8 text-center mb-16 mb-lg-0">
           <span class="fs-eight fw-medium n5-color order-sm-1">Copyright © <span id="copyright"></span>
