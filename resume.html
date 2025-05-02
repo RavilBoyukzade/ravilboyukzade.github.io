@@ -1,442 +1,525 @@
-<!DOCTYPE html><html lang="en"><head>
-    <!-- required meta -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- #keywords -->
-    <meta name="keywords" content="boot, Bootstrap, Personal, Protfolily HTML Template">
-    <!-- #description -->
-    <meta name="description" content="Protfolily - Responsive Personal Portfolio &amp; Resume HTML Template">
-    <!-- #title -->
-    <title>Portfolify - Personal Portfolio &amp; Resume HTML Template</title>
-    <!-- #favicon -->
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-    <!-- ==== css dependencies start ==== -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- AOS  -->
-    <link rel="stylesheet" href="css/aos.css">
-    <!-- swiper  -->
-    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- ICON  -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <!-- pdf-download  -->
-  </head>
-  <body>
-    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none" class="d-none">
-      <g clip-path="url(#clip0_3569_434)">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.69145 8.43063L1.72801 5.49387L5.69145 2.54023V0L0 4.21303V6.75919L5.69145 10.9887V8.43063Z" fill="rgba(var(--p1))"></path>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.72801 5.49387L5.69145 2.54023V0L0 4.21303V6.75919L1.72801 5.49387Z" fill="rgba(var(--p1))"></path>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.86328 6.5702L8.82672 9.5065L4.86328 12.4606V15.0004L10.5552 10.7864V8.24163L4.86328 4.01172V6.5702Z" fill="rgba(var(--p1))"></path>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.86328 6.5702L8.82672 9.5065L10.5552 10.7864V8.24163L4.86328 4.01172V6.5702Z" fill="rgba(var(--p1))"></path>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.72466 2.00391C9.52091 2.00391 10.1657 2.64912 10.1657 3.44491C10.1657 4.24115 9.52091 4.88591 8.72466 4.88591C7.92841 4.88591 7.2832 4.2407 7.2832 3.44491C7.2832 2.64912 7.92841 2.00391 8.72466 2.00391Z" fill="rgba(var(--p1))"></path>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.83013 12.9972C1.03388 12.9972 0.388672 12.352 0.388672 11.5562C0.388672 10.7604 1.03388 10.1152 1.82967 10.1152C2.62546 10.1152 3.27067 10.76 3.27067 11.5562C3.27067 12.3525 2.62592 12.9972 1.82967 12.9972H1.83013Z" fill="rgba(var(--p1))"></path>
-      </g>
-      <defs>
-        <clipPath>
-          <rect width="10.5561" height="15" fill="white"></rect>
-        </clipPath>
-      </defs>
-    </svg>
+<head>
+  <!-- required meta -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- #keywords -->
+  <meta name="keywords" content="boot, Bootstrap, Personal, Protfolily HTML Template">
+  <!-- #description -->
+  <meta name="description" content="Protfolily - Responsive Personal Portfolio &amp; Resume HTML Template">
+  <!-- #title -->
+  <title>Portfolify - Personal Portfolio &amp; Resume HTML Template</title>
+  <!-- #favicon -->
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <!-- ==== css dependencies start ==== -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- AOS  -->
+  <link rel="stylesheet" href="css/aos.css">
+  <!-- swiper  -->
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
 
-    <!-- preloder  srart -->
-    <div class="loader-wrapper">
-      <div class="loader"></div>
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-    </div>
-    <!-- preloder  end -->
+  <!-- ICON  -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <!-- pdf-download  -->
+</head>
 
-    <div class="d-flex gap-6">
-      <!-- sidebar start -->
-      <div class="side-menu">
-        <!-- sidebar-btn  -->
-        <div class="sidebar-btn close-btn cursor-pointer d-block d-lg-none">
-          <i class="ph ph-x fs-two p1-color"></i>
-        </div>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none" class="d-none">
+    <g clip-path="url(#clip0_3569_434)">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M5.69145 8.43063L1.72801 5.49387L5.69145 2.54023V0L0 4.21303V6.75919L5.69145 10.9887V8.43063Z"
+        fill="rgba(var(--p1))"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M1.72801 5.49387L5.69145 2.54023V0L0 4.21303V6.75919L1.72801 5.49387Z" fill="rgba(var(--p1))"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M4.86328 6.5702L8.82672 9.5065L4.86328 12.4606V15.0004L10.5552 10.7864V8.24163L4.86328 4.01172V6.5702Z"
+        fill="rgba(var(--p1))"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M4.86328 6.5702L8.82672 9.5065L10.5552 10.7864V8.24163L4.86328 4.01172V6.5702Z" fill="rgba(var(--p1))">
+      </path>
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M8.72466 2.00391C9.52091 2.00391 10.1657 2.64912 10.1657 3.44491C10.1657 4.24115 9.52091 4.88591 8.72466 4.88591C7.92841 4.88591 7.2832 4.2407 7.2832 3.44491C7.2832 2.64912 7.92841 2.00391 8.72466 2.00391Z"
+        fill="rgba(var(--p1))"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M1.83013 12.9972C1.03388 12.9972 0.388672 12.352 0.388672 11.5562C0.388672 10.7604 1.03388 10.1152 1.82967 10.1152C2.62546 10.1152 3.27067 10.76 3.27067 11.5562C3.27067 12.3525 2.62592 12.9972 1.82967 12.9972H1.83013Z"
+        fill="rgba(var(--p1))"></path>
+    </g>
+    <defs>
+      <clipPath>
+        <rect width="10.5561" height="15" fill="white"></rect>
+      </clipPath>
+    </defs>
+  </svg>
 
-        <div class="d-flex">
-          <div class="side-menu-left">
-            <div>
-              <div class="d-flex flex-column gap-8 justify-content-center align-items-center mt-6">
-                <a href="index.html" class="side-icon p1-color bgn2-color brn4">
-                  <img src="images/logo.png" alt="logo">
-                </a>
-                <div class="d-flex flex-column align-items-center gap-1">
-                  <button class="side-icon bg1-color mood_toggle">
-                    <i class="mood_icon ph-fill ph-moon fs-six n11-color"></i>
-                  </button>
-                  <span class="toggle_name fs-eleven n5-color">DarkMode</span>
-                </div>
+  <!-- preloder  srart -->
+  <div class="loader-wrapper">
+    <div class="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
+  <!-- preloder  end -->
+
+  <div class="d-flex gap-6">
+    <!-- sidebar start -->
+    <div class="side-menu">
+      <!-- sidebar-btn  -->
+      <div class="sidebar-btn close-btn cursor-pointer d-block d-lg-none">
+        <i class="ph ph-x fs-two p1-color"></i>
+      </div>
+
+      <div class="d-flex">
+        <div class="side-menu-left">
+          <div>
+            <div class="d-flex flex-column gap-8 justify-content-center align-items-center mt-6">
+              <a href="index.html" class="side-icon p1-color bgn2-color brn4">
+                <img src="images/logo.png" alt="logo">
+              </a>
+              <div class="d-flex flex-column align-items-center gap-1">
+                <button class="side-icon bg1-color mood_toggle">
+                  <i class="mood_icon ph-fill ph-moon fs-six n11-color"></i>
+                </button>
+                <span class="toggle_name fs-eleven n5-color">DarkMode</span>
               </div>
             </div>
           </div>
-          <div class="side-menu-right overflow-y-auto">
-            <div class="d-flex flex-column gap-6 justify-content-between py-10 px-5 bgn2-color h-100">
-              <div class="">
-                <div class="sidebar-profile">
-                  <div class="position-relative">
-                    <div class="profile-img1 d-flex justify-content-center overflow-hidden">
-                      <img src="images/profile.png" alt="user" class="">
-                    </div>
-                    <span class="thumb">🌐</span>
+        </div>
+        <div class="side-menu-right overflow-y-auto">
+          <div class="d-flex flex-column gap-6 justify-content-between py-10 px-5 bgn2-color h-100">
+            <div class="">
+              <div class="sidebar-profile">
+                <div class="position-relative">
+                  <div class="profile-img1 d-flex justify-content-center overflow-hidden">
+                    <img src="images/profile.png" alt="user" class="">
                   </div>
-
-                  <h4 class="n5-color fw-semibold fs-five mt-2 text-center">
-                    Ravil Boyukzada
-                  </h4>
-                  <span class="n5-color fs-nine d-block text-center">Full-stack developer</span>
-                  <div class="d-flex justify-content-center gap-2 align-items-center mt-4">
-                    <a href="https://www.facebook.com/ravilboyukzade/" class="social-icon p1-color">
-                      <i class="ph ph-facebook-logo"></i>
-                    </a>
-                    <a href="https://github.com/RavilBoyukzade" class="social-icon p1-color">
-                      <i class="ph ph-github-logo"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ravilboyukzade/" class="social-icon p1-color">
-                      <i class="ph ph-linkedin-logo"></i>
-                    </a>
-                    <a href="https://www.t.me/devel0_0per/" class="social-icon p1-color">
-                      <i class="ph ph-telegram-logo"></i>
-                    </a>
-                  </div>
+                  <span class="thumb">🌐</span>
                 </div>
-                <div class="line-divider my-4 my-md-8"></div>
 
-                <div class="menu-list">
-                  <ul class="d-flex flex-column gap-3">
-                    <li class="rounded-3">
-                      <a href="index.html" class="d-flex align-items-center gap-2 n5-color fs-eight px-3 py-2"><i class="ph ph-user fs-six"></i> About Me</a>
-                    </li>
-
-                    <li class="rounded-3">
-                      <a href="portfolio.html" class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center gap-2 n5-color fs-eight px-3 py-2">
-                          <i class="ph ph-code-block fs-six"></i> Portfolio
-                        </div>
-                        </a>
-                    </li>
-                    <li class="rounded-3 bg1-color">
-                      <a href="resume.html" class="d-flex align-items-center gap-2 n11-color fs-eight px-3 py-2"><i class="ph ph-notebook fs-six"></i> Resume</a>
-                    </li>
-                    <li class="rounded-3">
-                      <a href="blog.html" class="d-flex align-items-center gap-2 n5-color fs-eight px-3 py-2"><i class="ph ph-newspaper-clipping fs-six"></i>Blog</a>
-                    </li>
-                    <li class="rounded-3">
-                      <a href="contact.html" class="d-flex align-items-center gap-2 n5-color fs-eight px-3 py-2"><i class="ph ph-envelope fs-six"></i>Contact</a>
-                    </li>
-                  </ul>
+                <h4 class="n5-color fw-semibold fs-five mt-2 text-center">
+                  Ravil Boyukzada
+                </h4>
+                <span class="n5-color fs-nine d-block text-center">Full-stack developer</span>
+                <div class="d-flex justify-content-center gap-2 align-items-center mt-4">
+                  <a href="https://www.facebook.com/ravilboyukzade/" class="social-icon p1-color">
+                    <i class="ph ph-facebook-logo"></i>
+                  </a>
+                  <a href="https://github.com/RavilBoyukzade" class="social-icon p1-color">
+                    <i class="ph ph-github-logo"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/in/ravilboyukzade/" class="social-icon p1-color">
+                    <i class="ph ph-linkedin-logo"></i>
+                  </a>
+                  <a href="https://www.t.me/devel0_0per/" class="social-icon p1-color">
+                    <i class="ph ph-telegram-logo"></i>
+                  </a>
                 </div>
               </div>
-              <a href="contact.html" class="primary-btn fw-medium px-3 px-md-6 py-2 py-md-4 rounded-pill d-flex align-items-center gap-2 mx-auto">
-                <i class="ph ph-paper-plane-tilt"></i>Hire Me
-              </a>
+              <div class="line-divider my-4 my-md-8"></div>
+
+              <div class="menu-list">
+                <ul class="d-flex flex-column gap-3">
+                  <li class="rounded-3">
+                    <a href="index.html" class="d-flex align-items-center gap-2 n5-color fs-eight px-3 py-2"><i
+                        class="ph ph-user fs-six"></i> About Me</a>
+                  </li>
+
+                  <li class="rounded-3">
+                    <a href="portfolio.html" class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex align-items-center gap-2 n5-color fs-eight px-3 py-2">
+                        <i class="ph ph-code-block fs-six"></i> Portfolio
+                      </div>
+                    </a>
+                  </li>
+                  <li class="rounded-3 bg1-color">
+                    <a href="resume.html" class="d-flex align-items-center gap-2 n11-color fs-eight px-3 py-2"><i
+                        class="ph ph-notebook fs-six"></i> Resume</a>
+                  </li>
+                  <li class="rounded-3">
+                    <a href="blog.html" class="d-flex align-items-center gap-2 n5-color fs-eight px-3 py-2"><i
+                        class="ph ph-newspaper-clipping fs-six"></i>Blog</a>
+                  </li>
+                  <li class="rounded-3">
+                    <a href="contact.html" class="d-flex align-items-center gap-2 n5-color fs-eight px-3 py-2"><i
+                        class="ph ph-envelope fs-six"></i>Contact</a>
+                  </li>
+                </ul>
+              </div>
             </div>
+            <a href="contact.html"
+              class="primary-btn fw-medium px-3 px-md-6 py-2 py-md-4 rounded-pill d-flex align-items-center gap-2 mx-auto">
+              <i class="ph ph-paper-plane-tilt"></i>Hire Me
+            </a>
           </div>
         </div>
       </div>
-      <!-- sidebar end -->
+    </div>
+    <!-- sidebar end -->
 
-      <div class="main-content w-100">
-        <!-- top header  -->
-        <div class="w-100 bgn1-color p-3 position-fixed z-3 top-0 d-lg-none d-flex align-items-center justify-content-between br-bottom-n5 box-shadow1">
-          <a href="index.html" class="side-icon bgn2-color brn4">
-            <img src="images/logo.png" alt="logo">
-          </a>
+    <div class="main-content w-100">
+      <!-- top header  -->
+      <div
+        class="w-100 bgn1-color p-3 position-fixed z-3 top-0 d-lg-none d-flex align-items-center justify-content-between br-bottom-n5 box-shadow1">
+        <a href="index.html" class="side-icon bgn2-color brn4">
+          <img src="images/logo.png" alt="logo">
+        </a>
 
-          <div class="d-flex gap-3 align-items-center">
-            <button class="side-icon bg1-color mood_toggle">
-              <i class="mood_icon ph-fill ph-moon fs-six n11-color"></i>
-            </button>
-          </div>
+        <div class="d-flex gap-3 align-items-center">
+          <button class="side-icon bg1-color mood_toggle">
+            <i class="mood_icon ph-fill ph-moon fs-six n11-color"></i>
+          </button>
         </div>
-        <!-- bottom header  -->
-        <div class="w-100 bgn1-color p-3 position-fixed z-3 bottom-0 d-block d-lg-none br-top-n5 box-shadow1">
-          <div class="header-bottom-menu w-full">
-            <ul class="d-flex gap-1 align-items-center justify-content-between">
-              <li>
-                <a href="index.html" class="d-flex align-items-center gap-2 n5-color fs-eight p-2">
+      </div>
+      <!-- bottom header  -->
+      <div class="w-100 bgn1-color p-3 position-fixed z-3 bottom-0 d-block d-lg-none br-top-n5 box-shadow1">
+        <div class="header-bottom-menu w-full">
+          <ul class="d-flex gap-1 align-items-center justify-content-between">
+            <li>
+              <a href="index.html" class="d-flex align-items-center gap-2 n5-color fs-eight p-2">
+                <span class="fs-five d-flex align-items-center justify-content-center">
+                  <i class="ph-fill ph-user"></i>
+                </span>
+                <span class="d-none d-md-block">About Me</span></a>
+            </li>
+            <li>
+              <a href="portfolio.html" class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-2 n5-color fs-eight p-2">
                   <span class="fs-five d-flex align-items-center justify-content-center">
-                    <i class="ph-fill ph-user"></i>
+                    <i class="ph-fill ph-code-block"></i>
                   </span>
-                  <span class="d-none d-md-block">About Me</span></a>
-              </li>
-              <li>
-                <a href="portfolio.html" class="d-flex justify-content-between align-items-center">
-                  <div class="d-flex align-items-center gap-2 n5-color fs-eight p-2">
-                    <span class="fs-five d-flex align-items-center justify-content-center">
-                      <i class="ph-fill ph-code-block"></i>
-                    </span>
-                    <span class="d-none d-md-block">Portfolio</span>
-                  </div>
-                  <span class="n5-color bg2-color fs-ten px-1 pt-1 rounded-2 me-3 d-none d-md-block">16</span>
-                </a>
-              </li>
-              
-              <li class="rounded-3 bg1-color">
-                <a href="resume.html" class="d-flex align-items-center gap-2 n11-color fs-eight p-2">
-                  <span class="fs-five d-flex align-items-center justify-content-center"><i class="ph-fill ph-notebook fs-six"></i></span>
-                  <span class="d-none d-md-block">Resume</span>
-                </a>
-              </li>
-              <li>
-                <a href="blog.html" class="d-flex align-items-center gap-2 n5-color fs-eight p-2">
-                  <span class="fs-five d-flex align-items-center justify-content-center">
-                    <i class="ph-fill ph-newspaper-clipping"></i>
-                  </span>
-                  <span class="d-none d-md-block">Blog</span>
-                </a>
-              </li>
-              <li>
-                <a href="contact.html" class="d-flex align-items-center gap-2 n5-color fs-eight p-2">
-                  <span class="fs-five d-flex align-items-center justify-content-center"><i class="ph-fill ph-envelope"></i></span>
-                  <span class="d-none d-md-block">Contact</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- color palettes btns -->
-        <div class="color-switcher">
-        </div>
-
-        <!-- Resume section start -->
-        <section class="pt-120 pb-120 mt-10 mt-lg-0">
-          <div class="pb-60 br-bottom-n3">
-            <div data-aos="zoom-in" class="page-heading">
-              <h3 class="page-title fs-onefw-semibold n5-color mb-2 mb-md-3 text-center">
-                Online Resume
-              </h3>
-
-              <a href="/Resume/RavilBoyukzade.pdf" class="w-max primary-btn bg1-color fw-medium n1-color px-3 px-md-6 py-2 py-md-4 rounded-pill d-flex align-items-center gap-2 mx-auto" download="">
-                <i class="ph ph-file-pdf"></i>Download PDF Version
-              </a>
-            </div>
-          </div>
-
-          <div class="container mt-8 mt-md-15">
-            <div data-aos="fade-up" class="bgn2-color p-4 p-sm-8 p-md-15 rounded-5 brn4">
-              <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 br-bottom-n3 pb-3 pb-md-6">
-                <div>
-                  <h2 class="display-three p1-color fw-semibold">
-                    Ravil Boyukzade
-                  </h2>
-                  <span class="n4-color fs-six fw-medium">FULL-STACK DEVELOPER</span>
+                  <span class="d-none d-md-block">Portfolio</span>
                 </div>
-                <div class="ps-5 br-left-n3">
-                  <ul class="d-flex flex-column gap-3">
-                    <li>
-                      <a href="tel:+994505431392" class="d-flex gap-2 align-items-center n4-color">
-                        <i class="ph ph-phone"></i>+994(50)543-13-92</a>
-                    </li>
-                    <li>
-                      <a href="mailto:ravilboyukzada@gmail.com" class="d-flex gap-2 align-items-center n4-color">
-                        <i class="ph ph-envelope-simple"></i>ravilboyukzada@gmail.com</a>
-                    </li>
-                    <li class="d-flex gap-2 align-items-center n4-color">
-                      <a href="https://ravilboyukzade.github.io/" class="d-flex gap-2 align-items-center n4-color">
+                <span class="n5-color bg2-color fs-ten px-1 pt-1 rounded-2 me-3 d-none d-md-block">16</span>
+              </a>
+            </li>
+
+            <li class="rounded-3 bg1-color">
+              <a href="resume.html" class="d-flex align-items-center gap-2 n11-color fs-eight p-2">
+                <span class="fs-five d-flex align-items-center justify-content-center"><i
+                    class="ph-fill ph-notebook fs-six"></i></span>
+                <span class="d-none d-md-block">Resume</span>
+              </a>
+            </li>
+            <li>
+              <a href="blog.html" class="d-flex align-items-center gap-2 n5-color fs-eight p-2">
+                <span class="fs-five d-flex align-items-center justify-content-center">
+                  <i class="ph-fill ph-newspaper-clipping"></i>
+                </span>
+                <span class="d-none d-md-block">Blog</span>
+              </a>
+            </li>
+            <li>
+              <a href="contact.html" class="d-flex align-items-center gap-2 n5-color fs-eight p-2">
+                <span class="fs-five d-flex align-items-center justify-content-center"><i
+                    class="ph-fill ph-envelope"></i></span>
+                <span class="d-none d-md-block">Contact</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- color palettes btns -->
+      <div class="color-switcher">
+      </div>
+
+      <!-- Resume section start -->
+      <section class="pt-120 pb-120 mt-10 mt-lg-0">
+        <div class="pb-60 br-bottom-n3">
+          <div data-aos="zoom-in" class="page-heading">
+            <h3 class="page-title fs-onefw-semibold n5-color mb-2 mb-md-3 text-center">
+              Online Resume
+            </h3>
+
+            <a href="/Resume/RavilBoyukzade.pdf"
+              class="w-max primary-btn bg1-color fw-medium n1-color px-3 px-md-6 py-2 py-md-4 rounded-pill d-flex align-items-center gap-2 mx-auto"
+              download="">
+              <i class="ph ph-file-pdf"></i>Download PDF Version
+            </a>
+          </div>
+        </div>
+
+        <div class="container mt-8 mt-md-15">
+          <div data-aos="fade-up" class="bgn2-color p-4 p-sm-8 p-md-15 rounded-5 brn4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 br-bottom-n3 pb-3 pb-md-6">
+              <div>
+                <h2 class="display-three p1-color fw-semibold">
+                  Ravil Boyukzade
+                </h2>
+                <span class="n4-color fs-six fw-medium">FULL-STACK DEVELOPER</span>
+              </div>
+              <div class="ps-5 br-left-n3">
+                <ul class="d-flex flex-column gap-3">
+                  <li>
+                    <a href="tel:+994505431392" class="d-flex gap-2 align-items-center n4-color">
+                      <i class="ph ph-phone"></i>+994(50)543-13-92</a>
+                  </li>
+                  <li>
+                    <a href="mailto:ravilboyukzada@gmail.com" class="d-flex gap-2 align-items-center n4-color">
+                      <i class="ph ph-envelope-simple"></i>ravilboyukzada@gmail.com</a>
+                  </li>
+                  <li class="d-flex gap-2 align-items-center n4-color">
+                    <a href="https://ravilboyukzade.github.io/" class="d-flex gap-2 align-items-center n4-color">
                       <i class="ph ph-globe"></i>ravilboyukzade.github.io</a>
+                  </li>
+                  <li class="d-flex gap-2 align-items-center n4-color">
+                    <i class="ph ph-map-pin"></i> Baku, Azerbaijan 🇦🇿
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="d-flex flex-wrap flex-md-nowrap align-items-center gap-5 gap-md-10 pb-4 pb-md-8 br-bottom-n3 pt-60">
+              <div class="resume-profile flex-shrink-0">
+                <img src="images/user1.png" alt="profile" class="object-fit-cover" width="127" height="159">
+              </div>
+              <p class="n42-color fs-seven">
+                I am a Full Stack Developer with experience in building web applications using C# (Asp.net MVC) and
+                Angular, with strong skills in database management with SQL Server and MySQL. I am proficient in
+                frontend development tools like HTML, CSS, Bootstrap, and Javascript, and I utilize Python for solving
+                various complex tasks. I strive to create high-quality software by leveraging advanced technologies and
+                methodologies.
+              </p>
+            </div>
+
+            <div class="resume-section row g-6 pt-60 pb-60 br-bottom-n3">
+              <div class="col-md-8 col-lg-12 col-xl-8 col-xxl-9">
+                <div class="d-flex align-items-center gap-2 mb-5 mb-md-10">
+                  <div class="title-line2"></div>
+                  <h2 class="fs-three p1-color fw-semibold">
+                    Work Experiences
+                  </h2>
+                </div>
+                <div class="mb-4 mb-md-6">
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-between align-items-center">
+                    <span class="n5-color fs-six fw-medium">IT technology teacher</span>
+                    <span class="n4-color fs-eight">Impact Academiees & Camps | dec 2024 - now</span>
+                  </div>
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
+                    <span class="n4-color fs-eight">Baku | Azerbaijan</span>
+                  </div>
+                  <p class="n42-color fs-seven my-2 my-md-5">
+                    Impact Academies & Camps is an educational initiative dedicated to empowering youth through
+                    technology and innovation. Focused on delivering impactful learning experiences, the program
+                    combines modern teaching methodologies with real-world application, inspiring the next generation of
+                    digital creators and problem-solvers.</p>
+                  <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
+                    <li class="n42-color fs-seven">
+                      Teach programming to children and teenagers (ages 5–17) in dynamic camp and academy environments.
                     </li>
-                    <li class="d-flex gap-2 align-items-center n4-color">
-                      <i class="ph ph-map-pin"></i> Baku, Azerbaijan 🇦🇿
+                    <li class="n42-color fs-seven">
+                      Lead courses in Python, Lua, JavaScript, React, Java, and C#, adapted to diverse age groups and
+                      skill levels.
+                    </li>
+                    <li class="n42-color fs-seven">
+                      Focus on fostering critical thinking, creativity, and practical coding through project-based
+                      learning.
+                    </li>
+                    <li class="n42-color fs-seven">
+                      Support students in building their first apps, games, and web-based tools.
+                    </li>
+                    <li class="n42-color fs-seven">
+                      Promote an inclusive, engaging, and impact-driven learning environment.
                     </li>
                   </ul>
                 </div>
-              </div>
-
-              <div class="d-flex flex-wrap flex-md-nowrap align-items-center gap-5 gap-md-10 pb-4 pb-md-8 br-bottom-n3 pt-60">
-                <div class="resume-profile flex-shrink-0">
-                  <img src="images/user1.png" alt="profile" class="object-fit-cover" width="127" height="159">
+                <hr>
+                <div class="mb-4 mb-md-6">
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-between align-items-center">
+                    <span class="n5-color fs-six fw-medium">Lead Software Developer</span>
+                    <span class="n4-color fs-eight">EmpireSoft MMC | auq 2024 - now</span>
+                  </div>
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
+                    <span class="n4-color fs-eight">Baku | Azerbaijan</span>
+                  </div>
+                  <p class="n42-color fs-seven my-2 my-md-5">
+                    "Empire Soft MMC, established in December 2022, aims to secure a
+                    leading position in Azerbaijan's IT market. The company specializes in
+                    implementing and customizing CRM systems like Bitrix24, AmoCRM, and Altegio
+                    to help clients optimize their business processes. With a team of seasoned
+                    professionals, a modern approach, and a focus on quality service, Empire Soft
+                    delivers technological solutions that enhance client efficiency and competitiveness."
+                  </p>
+                  <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
+                    <li class="n42-color fs-seven">
+                      I optimized interaction with customers by implementing customer management systems such as
+                      Altegio, AmoCRM, Bitrix.
+                    </li>
+                    <li class="n42-color fs-seven">
+                      Websites I designed for 2 companies strengthened their online presence and increased traffic.
+                    </li>
+                    <li class="n42-color fs-seven">
+                      I managed to reduce downtime and increase productivity by providing hardware and software
+                      technical support in 2 companies.
+                    </li>
+                  </ul>
                 </div>
-                <p class="n42-color fs-seven">
-                  I am a Full Stack Developer with experience in building web applications using C# (Asp.net MVC) and Angular, with strong skills in database management with SQL Server and MySQL. I am proficient in frontend development tools like HTML, CSS, Bootstrap, and Javascript, and I utilize Python for solving various complex tasks. I strive to create high-quality software by leveraging advanced technologies and methodologies.
-                </p>
-              </div>
+                <hr>
+                <div class="mb-4 mb-md-6">
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-between align-items-center">
+                    <span class="n5-color fs-six fw-medium">
+                      Software Developer
+                    </span>
+                    <span class="n4-color fs-eight">Extrapack | may 2023 - Jan 2024</span>
 
-              <div class="resume-section row g-6 pt-60 pb-60 br-bottom-n3">
-                <div class="col-md-8 col-lg-12 col-xl-8 col-xxl-9">
-                  <div class="d-flex align-items-center gap-2 mb-5 mb-md-10">
-                    <div class="title-line2"></div>
-                    <h2 class="fs-three p1-color fw-semibold">
-                      Work Experiences
-                    </h2>
                   </div>
-                  <div class="mb-4 mb-md-6">
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-between align-items-center">
-                      <span class="n5-color fs-six fw-medium">Lead Software Developer</span>
-                      <span class="n4-color fs-eight">EmpireSoft MMC | auq 2024 - now</span>
-                    </div>
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
-                      <span class="n4-color fs-eight">Baku | Azerbaijan</span>
-                    </div>
-                    <p class="n42-color fs-seven my-2 my-md-5">
-                      "Empire Soft MMC, established in December 2022, aims to secure a 
-                      leading position in Azerbaijan's IT market. The company specializes in 
-                      implementing and customizing CRM systems like Bitrix24, AmoCRM, and Altegio 
-                      to help clients optimize their business processes. With a team of seasoned 
-                      professionals, a modern approach, and a focus on quality service, Empire Soft 
-                      delivers technological solutions that enhance client efficiency and competitiveness."
-                    </p>
-                    <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
-                      <li class="n42-color fs-seven">
-                        I optimized interaction with customers by implementing customer management systems such as Altegio, AmoCRM, Bitrix.
-                      </li>
-                      <li class="n42-color fs-seven">
-                        Websites I designed for 2 companies strengthened their online presence and increased traffic.
-                      </li>
-                      <li class="n42-color fs-seven">
-                        I managed to reduce downtime and increase productivity by providing hardware and software technical support in 2 companies.
-                      </li>
-                    </ul>
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
+                    <span class="n4-color fs-eight">Moscow | Russia</span>
                   </div>
-                  <hr>
-                  <div class="mb-4 mb-md-6">
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-between align-items-center">
-                      <span class="n5-color fs-six fw-medium">
-                        Software Developer
-                      </span>
-                      <span class="n4-color fs-eight">Extrapack | may 2023 - Jan 2024</span>
-                      
-                    </div>
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
-                      <span class="n4-color fs-eight">Moscow | Russia</span>
-                    </div>
-                    <p class="n42-color fs-seven my-2 my-md-5">
-                      <p class="n42-color fs-seven my-2 my-md-5">
-                        "Extra Pack is a leading manufacturer and online retailer of polyethylene bags in Moscow and across Russia. 
-                        The company specializes in the production and sale of packaging bags, T-shirt bags, 
-                        trash bags, and bags with various handles. With its own production facilities and 
-                        warehouses, it ensures prompt nationwide delivery. Operating since 2007, the company
-                         serves over 50 clients and produces more than 300 tons of products monthly."
-                      </p>
-                    </p> 
-                    <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
-                      <li class="n42-color fs-seven">
-                        I increased the flow of internet orders by developing the online sales platform of the Ekstrapak company.
-                      </li>
-                      <li class="n42-color fs-seven">
-                        By setting up Yandex.Metrika, I analyzed user behavior and analyzed the effectiveness of advertising campaigns.
-                      </li>
-                      <li class="n42-color fs-seven">
-                        I have increased production accuracy and productivity by programming CNC machines.
-                      </li>
-                    </ul>
+                  <p class="n42-color fs-seven my-2 my-md-5">
+                  <p class="n42-color fs-seven my-2 my-md-5">
+                    "Extra Pack is a leading manufacturer and online retailer of polyethylene bags in Moscow and across
+                    Russia.
+                    The company specializes in the production and sale of packaging bags, T-shirt bags,
+                    trash bags, and bags with various handles. With its own production facilities and
+                    warehouses, it ensures prompt nationwide delivery. Operating since 2007, the company
+                    serves over 50 clients and produces more than 300 tons of products monthly."
+                  </p>
+                  </p>
+                  <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
+                    <li class="n42-color fs-seven">
+                      I increased the flow of internet orders by developing the online sales platform of the Ekstrapak
+                      company.
+                    </li>
+                    <li class="n42-color fs-seven">
+                      By setting up Yandex.Metrika, I analyzed user behavior and analyzed the effectiveness of
+                      advertising campaigns.
+                    </li>
+                    <li class="n42-color fs-seven">
+                      I have increased production accuracy and productivity by programming CNC machines.
+                    </li>
+                  </ul>
+                </div>
+                <hr>
+                <div class="mb-4 mb-md-6">
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-between align-items-center">
+                    <span class="n5-color fs-six fw-medium">Teacher (Tutor)</span>
+                    <span class="n4-color fs-eight">KiberOne | sep 2022 - jun 2024</span>
                   </div>
-                  <hr>
-                  <div class="mb-4 mb-md-6">
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-between align-items-center">
-                      <span class="n5-color fs-six fw-medium">Teacher (Tutor)</span>
-                      <span class="n4-color fs-eight">KiberOne | sep 2022 - jun 2024</span>
-                    </div>
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
-                      <span class="n4-color fs-eight">Moscow | Russia</span>
-                    </div>
-                    <p class="n42-color fs-seven my-2 my-md-5">
-                     "KIBERone is an international educational platform specializing in teaching digital skills
-                      to children. The company offers a comprehensive curriculum covering programming, 
-                      web design, AI, and data science, with a focus on project-based learning. 
-                      KIBERone promotes both technical expertise and soft skills, such as problem-solving, 
-                      teamwork, and leadership. The platform is expanding globally, with a presence in 
-                      multiple regions, providing young learners with the skills needed to succeed in a 
-                      tech-driven future."
-                    </p>
-                    <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
-                      <li class="n42-color fs-seven">
-                        I have trained 1000+ students in Python, JavaScript, C# and algorithms to improve their technical skills.
-                      </li>
-                      <li class="n42-color fs-seven">
-                        I developed practical skills by taking classes in 3D modeling, animation, game development (Unity) and website creation.
-                      </li>
-                      <li class="n42-color fs-seven">
-                        Through robotics and artificial intelligence classes, I have provided students with technological knowledge and problem-solving skills.
-                      </li>
-                      <li class="n42-color fs-seven">
-                        I developed students' IT knowledge using tools such as Scratch, Python, HTML/CSS.
-                      </li>
-                      <li class="n42-color fs-seven">
-                        Contributed to improving educational outcomes by developing curricula and providing detailed feedback to parents.
-                      </li>
-                    </ul>
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
+                    <span class="n4-color fs-eight">Moscow | Russia</span>
                   </div>
-                  <hr>
-                  <div class="mb-4 mb-md-6">
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-between align-items-center mb-2 mb-md-4">
-                      <span class="n5-color fs-six fw-medium">Deputy Director of Training and Education</span>
-                      
-                    </div>
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
-                      <span class="n42-color fs-eight">Hedef STEAM Lyceum | auq 2021 - jun 2022</span>
-                    </div>
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
-                      <span class="n4-color fs-eight">Baku | Azerbaijan</span>
-                    </div>
-                    <p class="n42-color fs-seven">
-                      Hedef High School is the first school in Azerbaijan to implement STEAM education (STEM + Art). 
-                      The school offers programs in Azerbaijani, Russian, and English, 
-                      following national and international standards, including Cambridge. 
-                      It prepares graduates for leading universities in Azerbaijan, 
-                      Turkey, and Europe. Special emphasis is placed on developing critical 
-                      thinking, engineering, and scientific skills through practical activities
-                       and the concept of "learning by touch."
-                    </p> 
-                    <br>
-                    <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
-                      <li class="n42-color fs-seven">
-                        Enforced behavior policies at the school, maintaining discipline among 375 students and 170 teachers.</li>
-                      <li class="n42-color fs-seven">
-                        Resolved conflicts with parents, achieving a 70% reduction in conflict situations.</li>
-                      <li class="n42-color fs-seven">
-                        Planned and organized various events, increasing participation in school life among students and parents by 100%.</li>
-                      <li class="n42-color fs-seven">
-                        Taught programming languages C++, Python, and C# to students in grades 5-9, developing their programming skills.</li>
-                      <li class="n42-color fs-seven">
-                        Created a system for calculating annual fees based on exam results, reducing data processing time.</li>
-                      <li lass="n42-color fs-seven">
-                        Shared expertise as an education and upbringing specialist at forums, increasing trust in the educational process.
-                      </li>
-                      </ul>
-                  </div>
-                  <hr>
-                  <div class="mb-4 mb-md-6">
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-between align-items-center mb-2 mb-md-4">
-                      <span class="n5-color fs-six fw-medium">Information technology teacher </span>
-                      
-                    </div>
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
-                      <span class="n42-color fs-eight">Hedef STEAM Lyceum | auq 2020 - jun 2021</span>
-                    </div>
-                    <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
-                      <span class="n4-color fs-eight">Baku | Azerbaijan</span>
-                    </div>
-                    <p class="n42-color fs-seven">
-                      Hedef High School is the first school in Azerbaijan to implement STEAM education (STEM + Art). 
-                      The school offers programs in Azerbaijani, Russian, and English, 
-                      following national and international standards, including Cambridge. 
-                      It prepares graduates for leading universities in Azerbaijan, 
-                      Turkey, and Europe. Special emphasis is placed on developing critical 
-                      thinking, engineering, and scientific skills through practical activities
-                       and the concept of "learning by touch."
-                    </p> 
-                    <br>
-                    <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
-                      <li class="n42-color fs-seven">
-                        Taught the basics of information technology and algorithms to students in grades 1-4, enhancing their skills with programs like Scratch,
-                        Minecraft, CodeGame Lab, and Construct2.</li>
-                      <li class="n42-color fs-seven">
-                        Delivered lessons in C++, Python, and C# programming languages to students in grades 5-8, preparing assignments and projects that support
-                        the development of their programming skills.</li>
-                      <li class="n42-color fs-seven">
-                        As a technology teacher, conducted Arduino programming lessons, organizing practical exercises in robot construction and programming for
-                        students.</li>
-                      <li class="n42-color fs-seven">
-                        As a class supervisor, maintained discipline in the classroom, monitored students’ academic progress, and organized additional lessons to
-                        improve outcomes.</li>
-                      <li class="n42-color fs-seven">
-                        Maintained close communication with parents, fostering effective collaboration in addressing issues within the educational process.</li>
-                      </ul>
-                  </div>
+                  <p class="n42-color fs-seven my-2 my-md-5">
+                    "KIBERone is an international educational platform specializing in teaching digital skills
+                    to children. The company offers a comprehensive curriculum covering programming,
+                    web design, AI, and data science, with a focus on project-based learning.
+                    KIBERone promotes both technical expertise and soft skills, such as problem-solving,
+                    teamwork, and leadership. The platform is expanding globally, with a presence in
+                    multiple regions, providing young learners with the skills needed to succeed in a
+                    tech-driven future."
+                  </p>
+                  <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
+                    <li class="n42-color fs-seven">
+                      I have trained 1000+ students in Python, JavaScript, C# and algorithms to improve their technical
+                      skills.
+                    </li>
+                    <li class="n42-color fs-seven">
+                      I developed practical skills by taking classes in 3D modeling, animation, game development (Unity)
+                      and website creation.
+                    </li>
+                    <li class="n42-color fs-seven">
+                      Through robotics and artificial intelligence classes, I have provided students with technological
+                      knowledge and problem-solving skills.
+                    </li>
+                    <li class="n42-color fs-seven">
+                      I developed students' IT knowledge using tools such as Scratch, Python, HTML/CSS.
+                    </li>
+                    <li class="n42-color fs-seven">
+                      Contributed to improving educational outcomes by developing curricula and providing detailed
+                      feedback to parents.
+                    </li>
+                  </ul>
+                </div>
+                <hr>
+                <div class="mb-4 mb-md-6">
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-between align-items-center mb-2 mb-md-4">
+                    <span class="n5-color fs-six fw-medium">Deputy Director of Training and Education</span>
 
-                  <!-- <div class="d-flex align-items-center gap-2 mb-5 mb-md-10">
+                  </div>
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
+                    <span class="n42-color fs-eight">Hedef STEAM Lyceum | auq 2021 - jun 2022</span>
+                  </div>
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
+                    <span class="n4-color fs-eight">Baku | Azerbaijan</span>
+                  </div>
+                  <p class="n42-color fs-seven">
+                    Hedef High School is the first school in Azerbaijan to implement STEAM education (STEM + Art).
+                    The school offers programs in Azerbaijani, Russian, and English,
+                    following national and international standards, including Cambridge.
+                    It prepares graduates for leading universities in Azerbaijan,
+                    Turkey, and Europe. Special emphasis is placed on developing critical
+                    thinking, engineering, and scientific skills through practical activities
+                    and the concept of "learning by touch."
+                  </p>
+                  <br>
+                  <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
+                    <li class="n42-color fs-seven">
+                      Enforced behavior policies at the school, maintaining discipline among 375 students and 170
+                      teachers.</li>
+                    <li class="n42-color fs-seven">
+                      Resolved conflicts with parents, achieving a 70% reduction in conflict situations.</li>
+                    <li class="n42-color fs-seven">
+                      Planned and organized various events, increasing participation in school life among students and
+                      parents by 100%.</li>
+                    <li class="n42-color fs-seven">
+                      Taught programming languages C++, Python, and C# to students in grades 5-9, developing their
+                      programming skills.</li>
+                    <li class="n42-color fs-seven">
+                      Created a system for calculating annual fees based on exam results, reducing data processing time.
+                    </li>
+                    <li lass="n42-color fs-seven">
+                      Shared expertise as an education and upbringing specialist at forums, increasing trust in the
+                      educational process.
+                    </li>
+                  </ul>
+                </div>
+                <hr>
+                <div class="mb-4 mb-md-6">
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-between align-items-center mb-2 mb-md-4">
+                    <span class="n5-color fs-six fw-medium">Information technology teacher </span>
+
+                  </div>
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
+                    <span class="n42-color fs-eight">Hedef STEAM Lyceum | auq 2020 - jun 2021</span>
+                  </div>
+                  <div class="d-flex flex-wrap gap-1 gap-sm-3 justify-content-end align-items-center">
+                    <span class="n4-color fs-eight">Baku | Azerbaijan</span>
+                  </div>
+                  <p class="n42-color fs-seven">
+                    Hedef High School is the first school in Azerbaijan to implement STEAM education (STEM + Art).
+                    The school offers programs in Azerbaijani, Russian, and English,
+                    following national and international standards, including Cambridge.
+                    It prepares graduates for leading universities in Azerbaijan,
+                    Turkey, and Europe. Special emphasis is placed on developing critical
+                    thinking, engineering, and scientific skills through practical activities
+                    and the concept of "learning by touch."
+                  </p>
+                  <br>
+                  <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
+                    <li class="n42-color fs-seven">
+                      Taught the basics of information technology and algorithms to students in grades 1-4, enhancing
+                      their skills with programs like Scratch,
+                      Minecraft, CodeGame Lab, and Construct2.</li>
+                    <li class="n42-color fs-seven">
+                      Delivered lessons in C++, Python, and C# programming languages to students in grades 5-8,
+                      preparing assignments and projects that support
+                      the development of their programming skills.</li>
+                    <li class="n42-color fs-seven">
+                      As a technology teacher, conducted Arduino programming lessons, organizing practical exercises in
+                      robot construction and programming for
+                      students.</li>
+                    <li class="n42-color fs-seven">
+                      As a class supervisor, maintained discipline in the classroom, monitored students’ academic
+                      progress, and organized additional lessons to
+                      improve outcomes.</li>
+                    <li class="n42-color fs-seven">
+                      Maintained close communication with parents, fostering effective collaboration in addressing
+                      issues within the educational process.</li>
+                  </ul>
+                </div>
+
+                <!-- <div class="d-flex align-items-center gap-2 mb-5 mb-md-10">
                     <div class="title-line2"></div>
                     <h2 class="fs-three p1-color fw-semibold">Projects</h2>
                   </div>
@@ -478,182 +561,190 @@
                       consequat vitae, eleifend ac, enim.
                     </p>
                   </div> -->
-                </div>
-                 <!-- right side  -->
-                <div class="col-md-4 col-lg-12 col-xl-4 col-xxl-3">
-                  <div class="ps-4 ps-xxl-7 br-left-n3 d-flex flex-column gap-8 gap-md-15">
-                    <!-- skills  -->
+              </div>
+              <!-- right side  -->
+              <div class="col-md-4 col-lg-12 col-xl-4 col-xxl-3">
+                <div class="ps-4 ps-xxl-7 br-left-n3 d-flex flex-column gap-8 gap-md-15">
+                  <!-- skills  -->
+                  <div>
+                    <div class="d-flex align-items-center gap-2 mb-5 mb-md-10">
+                      <div class="title-line2"></div>
+                      <h2 class="fs-three p1-color fw-semibold">Skills</h2>
+                    </div>
+
+                    <div class="mb-3 mb-md-6">
+                      <h5 class="fs-six n5-color fw-medium mb-2 mb-md-4">
+                        Technical
+                      </h5>
+                      <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
+                        <li class="n4-color fs-seven">
+                          JavaScript/Angular/React
+                        </li>
+                        <li class="n4-color fs-seven">CSS/Sass/Less</li>
+                        <li class="n4-color fs-seven">Python/pandas/numpy</li>
+                        <li class="n4-color fs-seven">Node.js/ASP.NET/ASP.NET Core</li>
+                        <li class="n4-color fs-seven">PostgreSQL/MySQL/PL SQL</li>
+                        <li class="n4-color fs-seven">C/C++/C#</li>
+                        <li class="n4-color fs-seven">
+                          Object-oriented design
+                        </li>
+                        <li class="n4-color fs-seven">
+                          Design and implement database structures
+                        </li>
+                        <li class="n4-color fs-seven">
+                          Lead and deliver complex software systems
+                        </li>
+                      </ul>
+                    </div>
+
                     <div>
-                      <div class="d-flex align-items-center gap-2 mb-5 mb-md-10">
-                        <div class="title-line2"></div>
-                        <h2 class="fs-three p1-color fw-semibold">Skills</h2>
-                      </div>
+                      <h5 class="fs-six n5-color fw-medium mb-2 mb-md-4">
+                        Professional
+                      </h5>
+                      <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
+                        <li class="n4-color fs-seven">
+                          Effective communication
+                        </li>
+                        <li class="n4-color fs-seven">Team player</li>
+                        <li class="n4-color fs-seven">
+                          Strong problem solver
+                        </li>
+                        <li class="n4-color fs-seven">
+                          Good time management
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
 
-                      <div class="mb-3 mb-md-6">
-                        <h5 class="fs-six n5-color fw-medium mb-2 mb-md-4">
-                          Technical
-                        </h5>
-                        <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
-                          <li class="n4-color fs-seven">
-                            JavaScript/Angular/React
-                          </li>
-                          <li class="n4-color fs-seven">CSS/Sass/Less</li>
-                          <li class="n4-color fs-seven">Python/pandas/numpy</li>
-                          <li class="n4-color fs-seven">Node.js/ASP.NET/ASP.NET Core</li>
-                          <li class="n4-color fs-seven">PostgreSQL/MySQL/PL SQL</li>
-                          <li class="n4-color fs-seven">C/C++/C#</li>
-                          <li class="n4-color fs-seven">
-                            Object-oriented design
-                          </li>
-                          <li class="n4-color fs-seven">
-                            Design and implement database structures
-                          </li>
-                          <li class="n4-color fs-seven">
-                            Lead and deliver complex software systems
-                          </li>
-                        </ul>
-                      </div>
-
+                  <!-- education  -->
+                  <div>
+                    <div class="d-flex align-items-center gap-2 mb-3 mb-md-6">
+                      <div class="title-line2"></div>
+                      <h2 class="fs-three p1-color fw-semibold">Education</h2>
+                    </div>
+                    <div class="d-flex gap-2 mb-3 mb-md-5">
+                      <i class="ph ph-graduation-cap fs-six p1-color"></i>
                       <div>
-                        <h5 class="fs-six n5-color fw-medium mb-2 mb-md-4">
-                          Professional
-                        </h5>
-                        <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
-                          <li class="n4-color fs-seven">
-                            Effective communication
-                          </li>
-                          <li class="n4-color fs-seven">Team player</li>
-                          <li class="n4-color fs-seven">
-                            Strong problem solver
-                          </li>
-                          <li class="n4-color fs-seven">
-                            Good time management
-                          </li>
-                        </ul>
+                        <span class="n4-color fs-seven">The National University of Science and Technology MISIS</span>
+                        <span class="n4-color fs-eleven">2022 - 2024</span>
                       </div>
                     </div>
-
-                    <!-- education  -->
-                    <div>
-                      <div class="d-flex align-items-center gap-2 mb-3 mb-md-6">
-                        <div class="title-line2"></div>
-                        <h2 class="fs-three p1-color fw-semibold">Education</h2>
-                      </div>
-                      <div class="d-flex gap-2 mb-3 mb-md-5">
-                        <i class="ph ph-graduation-cap fs-six p1-color"></i>
-                        <div>
-                          <span class="n4-color fs-seven">The National University of Science and Technology MISIS</span>
-                          <span class="n4-color fs-eleven">2022 - 2024</span>
-                        </div>
-                      </div>
-                      <div class="d-flex gap-2">
-                        <i class="ph ph-graduation-cap fs-six p1-color"></i>
-                        <div>
-                          <span class="n4-color fs-seven">CodeAcademy</span>
-                          <span class="n4-color fs-eleven">2019-2020</span>
-                        </div>
-                      </div>
-                      <div class="d-flex gap-2">
-                        <i class="ph ph-graduation-cap fs-six p1-color"></i>
-                        <div>
-                          <span class="n4-color fs-seven">Baku State University</span>
-                          <span class="n4-color fs-eleven">2014-2019</span>
-                        </div>
+                    <div class="d-flex gap-2">
+                      <i class="ph ph-graduation-cap fs-six p1-color"></i>
+                      <div>
+                        <span class="n4-color fs-seven">CodeAcademy</span>
+                        <span class="n4-color fs-eleven">2019-2020</span>
                       </div>
                     </div>
-                    <!-- awards  -->
-                    <div>
-                      <div class="d-flex align-items-center gap-2 mb-3 mb-md-6">
-                        <div class="title-line2"></div>
-                        <h2 class="fs-three p1-color fw-semibold">Certificates</h2>
-                      </div>
-                      <div class="d-flex gap-2 mb-3 mb-md-5">
-                        <i class="ph ph-trophy fs-six p1-color"></i>
-                        <div>
-                          <span class="n4-color fs-seven">Registered Member of HiSTES</span>
-                          <span class="n4-color fs-eleven">2023</span>
-                        </div>
-                      </div>
-                      <div class="d-flex gap-2">
-                        <i class="ph ph-trophy fs-six p1-color"></i>
-                        <div>
-                          <span class="n4-color fs-seven"><a href="https://drive.google.com/drive/folders/1K0jd_BY3HhT5093z2_y9SdPfuGTLDl85">All cerificates Link</a></span>
-                          <span class="n4-color fs-eleven">Click to view</span>
-                        </div>
+                    <div class="d-flex gap-2">
+                      <i class="ph ph-graduation-cap fs-six p1-color"></i>
+                      <div>
+                        <span class="n4-color fs-seven">Baku State University</span>
+                        <span class="n4-color fs-eleven">2014-2019</span>
                       </div>
                     </div>
-                    <!-- Languages  -->
-                    <div>
-                      <div class="d-flex align-items-center gap-2 mb-3 mb-md-6">
-                        <div class="title-line2"></div>
-                        <h2 class="fs-three p1-color fw-semibold">Languages</h2>
-                      </div>
-                      <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
-                        <li class="n4-color fs-seven">English(upper intermediate)</li>
-                        <li class="n4-color fs-seven">
-                          Russian (Professional)
-                        </li>
-                        <li class="n4-color fs-seven">
-                          Azerbaijan (Professional)
-                        </li>
-                      </ul>
+                  </div>
+                  <!-- awards  -->
+                  <div>
+                    <div class="d-flex align-items-center gap-2 mb-3 mb-md-6">
+                      <div class="title-line2"></div>
+                      <h2 class="fs-three p1-color fw-semibold">Certificates</h2>
                     </div>
-                    <!-- Interests  -->
-                    <div>
-                      <div class="d-flex align-items-center gap-2 mb-3 mb-md-6">
-                        <div class="title-line2"></div>
-                        <h2 class="fs-three p1-color fw-semibold">Interests</h2>
+                    <div class="d-flex gap-2 mb-3 mb-md-5">
+                      <i class="ph ph-trophy fs-six p1-color"></i>
+                      <div>
+                        <span class="n4-color fs-seven">Registered Member of HiSTES</span>
+                        <span class="n4-color fs-eleven">2023</span>
                       </div>
-                      <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
-                        <li class="n4-color fs-seven">Coding</li>
-                        <li class="n4-color fs-seven">Teaching</li>
-                        <li class="n4-color fs-seven">Data analysis</li>
-                        <li class="n4-color fs-seven">Running</li>
-                      </ul>
                     </div>
+                    <div class="d-flex gap-2">
+                      <i class="ph ph-trophy fs-six p1-color"></i>
+                      <div>
+                        <span class="n4-color fs-seven"><a
+                            href="https://drive.google.com/drive/folders/1K0jd_BY3HhT5093z2_y9SdPfuGTLDl85">All
+                            cerificates Link</a></span>
+                        <span class="n4-color fs-eleven">Click to view</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Languages  -->
+                  <div>
+                    <div class="d-flex align-items-center gap-2 mb-3 mb-md-6">
+                      <div class="title-line2"></div>
+                      <h2 class="fs-three p1-color fw-semibold">Languages</h2>
+                    </div>
+                    <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
+                      <li class="n4-color fs-seven">English(upper intermediate)</li>
+                      <li class="n4-color fs-seven">
+                        Russian (Professional)
+                      </li>
+                      <li class="n4-color fs-seven">
+                        Azerbaijan (Professional)
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Interests  -->
+                  <div>
+                    <div class="d-flex align-items-center gap-2 mb-3 mb-md-6">
+                      <div class="title-line2"></div>
+                      <h2 class="fs-three p1-color fw-semibold">Interests</h2>
+                    </div>
+                    <ul class="d-flex flex-column gap-3 ms-6 ms-lg-10">
+                      <li class="n4-color fs-seven">Coding</li>
+                      <li class="n4-color fs-seven">Teaching</li>
+                      <li class="n4-color fs-seven">Data analysis</li>
+                      <li class="n4-color fs-seven">Running</li>
+                    </ul>
                   </div>
                 </div>
               </div>
-
-              <div class="d-flex flex-wrap gap-2 gap-md-3 gap-md-5 align-items-center justify-content-center mt-4 mt-md-8">
-                <a href="javascript:void(0)" class="d-flex gap-1 align-items-center resume-icon">
-                  <div class="social-icon">
-                    <i class="ph ph-github-logo p1-color"></i>
-                  </div>
-                  <span class="fs-nine n4-color"><a href="http://www.github.com/ravilboyukzade">github.com/ravilboyukzade</a></span>
-                </a>
-                <a href="javascript:void(0)" class="d-flex gap-1 align-items-center resume-icon">
-                  <div class="social-icon">
-                    <i class="ph ph-linkedin-logo p1-color"></i>
-                  </div>
-                  <span class="fs-nine n4-color"> <a href="https://www.linkedin.com/in/ravilboyukzade/">linkedin.com/in/ravilboyukzade/</a> </span>
-                </a>
-              </div>
-
-                
             </div>
+
+            <div
+              class="d-flex flex-wrap gap-2 gap-md-3 gap-md-5 align-items-center justify-content-center mt-4 mt-md-8">
+              <a href="javascript:void(0)" class="d-flex gap-1 align-items-center resume-icon">
+                <div class="social-icon">
+                  <i class="ph ph-github-logo p1-color"></i>
+                </div>
+                <span class="fs-nine n4-color"><a
+                    href="http://www.github.com/ravilboyukzade">github.com/ravilboyukzade</a></span>
+              </a>
+              <a href="javascript:void(0)" class="d-flex gap-1 align-items-center resume-icon">
+                <div class="social-icon">
+                  <i class="ph ph-linkedin-logo p1-color"></i>
+                </div>
+                <span class="fs-nine n4-color"> <a
+                    href="https://www.linkedin.com/in/ravilboyukzade/">linkedin.com/in/ravilboyukzade/</a> </span>
+              </a>
+            </div>
+
+
           </div>
-        </section>
-        <!-- Resume section end -->
+        </div>
+      </section>
+      <!-- Resume section end -->
 
-        <!-- footer section start -->
-        <section class="container d-flex flex-wrap gap-3 gap-md-6 justify-content-center justify-content-sm-between align-items-center pb-4 pb-md-8 text-center mb-16 mb-lg-0">
-          <span class="fs-eight fw-medium n5-color order-sm-1">Copyright © <span id="copyright"></span>
-            <a href="index.html" class="fs-eight fw-medium n5-color">Ravil Boyukzada</a>. All Rights Reserved.</span>
-        </section>
-        <!-- footer section end -->
-      </div>
+      <!-- footer section start -->
+      <section
+        class="container d-flex flex-wrap gap-3 gap-md-6 justify-content-center justify-content-sm-between align-items-center pb-4 pb-md-8 text-center mb-16 mb-lg-0">
+        <span class="fs-eight fw-medium n5-color order-sm-1">Copyright © <span id="copyright"></span>
+          <a href="index.html" class="fs-eight fw-medium n5-color">Ravil Boyukzada</a>. All Rights Reserved.</span>
+      </section>
+      <!-- footer section end -->
     </div>
+  </div>
 
-    <!-- script js  -->
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-    <!-- swiper js  -->
-    <script src="js/swiper-bundle.min.js"></script>
-    <!-- email js  -->
-    <script type="text/javascript" src="js/email.min.js"></script>
-    <!-- aos -->
-    <script src="js/aos.js"></script>
-  
+  <!-- script js  -->
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <!-- swiper js  -->
+  <script src="js/swiper-bundle.min.js"></script>
+  <!-- email js  -->
+  <script type="text/javascript" src="js/email.min.js"></script>
+  <!-- aos -->
+  <script src="js/aos.js"></script>
 
-</body></html>
+
+</body>
+
+</html>
