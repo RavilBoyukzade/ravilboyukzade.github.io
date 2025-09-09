@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактируемые таблицы microsoft word</title>
+  <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./assets/style/style.css">
+</head>
+<body class="flex flex-col items-center min-h-screen p-6">
+
+  <!-- Панель инструментов текстового редактора -->
+  <div id="textToolbar">
+    <div class="editor-title">
+      <i class="fas fa-edit mr-2"></i>Редактор текста
+    </div>
+    
+    <span class="toolbar-label">Шрифт:</span>
+    <select id="fontName" class="toolbar-select">
+      <option value="Arial">Arial</option>
+      <option value="Helvetica">Helvetica</option>
+      <option value="Times New Roman">Times New Roman</option>
+      <option value="Georgia">Georgia</option>
+      <option value="Courier New">Courier New</option>
+      <option value="Verdana">Verdana</option>
+    </select>
+    
+    <span class="toolbar-label">Размер:</span>
+    <select id="fontSize" class="toolbar-select">
+      <option value="8px">8px</option>
+      <option value="10px">10px</option>
+      <option value="12px" selected>12px</option>
+      <option value="14px">14px</option>
+      <option value="16px">16px</option>
+      <option value="18px">18px</option>
+      <option value="20px">20px</option>
+      <option value="24px">24px</option>
+      <option value="28px">28px</option>
+      <option value="32px">32px</option>
+      <option value="36px">36px</option>
+      <option value="42px">42px</option>
+      <option value="48px">48px</option>
+    </select>
+    
+    <button data-command="bold" class="toolbar-btn" title="Жирный"><i class="fas fa-bold"></i></button>
+    <button data-command="italic" class="toolbar-btn" title="Курсив"><i class="fas fa-italic"></i></button>
+    <button data-command="underline" class="toolbar-btn" title="Подчеркивание"><i class="fas fa-underline"></i></button>
+    
+    <div class="color-picker-container">
+      <button id="colorPickerBtn" class="toolbar-btn" title="Выбор цвета">
+        <i class="fas fa-palette"></i>
+      </button>
+      <div id="colorPalette" class="color-palette">
+        <div class="palette-color" style="background:#dc2626" data-value="#dc2626"></div>
+        <div class="palette-color" style="background:#ea580c" data-value="#ea580c"></div>
+        <div class="palette-color" style="background:#d97706" data-value="#d97706"></div>
+        <div class="palette-color" style="background:#65a30d" data-value="#65a30d"></div>
+        <div class="palette-color" style="background:#16a34a" data-value="#16a34a"></div>
+        <div class="palette-color" style="background:#0d9488" data-value="#0d9488"></div>
+        <div class="palette-color" style="background:#0891b2" data-value="#0891b2"></div>
+        <div class="palette-color" style="background:#2563eb" data-value="#2563eb"></div>
+        <div class="palette-color" style="background:#4f46e5" data-value="#4f46e5"></div>
+        <div class="palette-color" style="background:#7c3aed" data-value="#7c3aed"></div>
+        <div class="palette-color" style="background:#a21caf" data-value="#a21caf"></div>
+        <div class="palette-color" style="background:#c026d3" data-value="#c026d3"></div>
+        <div class="palette-color" style="background:#db2777" data-value="#db2777"></div>
+        <div class="palette-color" style="background:#e11d48" data-value="#e11d48"></div>
+        <div class="palette-color" style="background:#000000" data-value="#000000"></div>
+        <div class="palette-color" style="background:#4b5563" data-value="#4b5563"></div>
+      </div>
+    </div>
+    
+    <button data-command="justifyLeft" class="toolbar-btn" title="По левому краю"><i class="fas fa-align-left"></i></button>
+    <button data-command="justifyCenter" class="toolbar-btn" title="По центру"><i class="fas fa-align-center"></i></button>
+    <button data-command="justifyRight" class="toolbar-btn" title="По правому краю"><i class="fas fa-align-right"></i></button>
+    
+    <button data-command="insertUnorderedList" class="toolbar-btn" title="Маркированный список"><i class="fas fa-list-ul"></i></button>
+    <button data-command="insertOrderedList" class="toolbar-btn" title="Нумерованный список"><i class="fas fa-list-ol"></i></button>
+    
+    <button data-command="removeFormat" class="toolbar-btn" title="Очистить форматирование"><i class="fas fa-eraser"></i></button>
+
+    <button class="close-toolbar" title="Скрыть панель">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <div class="editor-container">
+    <div class="editor-header text-center">
+      <h1 class="text-3xl font-bold mb-2">Редактируемые таблицы microsoft word</h1>
+      <p class="opacity-90">Загрузите документ Word и отредактируйте таблицы с помощью нашего инструмента</p>
+    </div>
+
+    <div class="editor-body">
+      <div class="flex gap-4 mb-6 justify-center">
+        <label class="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center">
+          <input type="file" id="fileInput" accept=".docx" class="hidden">
+          <i class="fas fa-upload mr-2"></i>Загрузить Word
+        </label>
+
+        <button id="downloadJson" class="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center" disabled>
+          <i class="fas fa-download mr-2"></i>Скачать JSON
+        </button>
+
+        <button id="downloadExcel" class="bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center" disabled>
+          <i class="fas fa-file-excel mr-2"></i>Скачать Excel
+        </button>
+
+        <button id="uploadServer" class="bg-pink-500 hover:bg-pink-600 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center" disabled>
+          <i class="fas fa-paper-plane mr-2"></i>Отправить на сервер
+        </button>
+      </div>
+
+      <div id="tables" class="bg-white rounded-2xl p-6 border border-slate-200"></div>
+    </div>
+  </div>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
