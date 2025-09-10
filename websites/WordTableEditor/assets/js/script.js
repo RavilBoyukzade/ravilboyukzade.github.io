@@ -9,15 +9,29 @@ const input = document.getElementById('fileInput');
     const closeToolbarBtn = document.querySelector('.close-toolbar');
     const colorPickerBtn = document.getElementById('colorPickerBtn');
     const colorPalette = document.getElementById('colorPalette');
+    const exportModal = document.getElementById('exportModal');
+    const tableList = document.getElementById('tableList');
+    const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+    const cancelExportBtn = document.getElementById('cancelExport');
+    const confirmExportBtn = document.getElementById('confirmExport');
 
     let extractedData = [];
     let activeCell = null;
     let isSelectingColor = false;
+    let selectedTablesForExport = [];
 
-    // Функция для экспорта в Excel
-    function exportToExcel() {
+    // Функция для экспорта в Excel с выбранными таблицами
+    function exportToExcel(tablesToExport = null) {
       if (extractedData.length === 0) {
         alert('Нет данных для экспорта!');
+        return;
+      }
+
+      // Если не указаны конкретные таблицы, экспортируем все
+      const tables = tablesToExport || extractedData;
+      
+      if (tables.length === 0) {
+        alert('Не выбрано ни одной таблицы для экспорта!');
         return;
       }
 
@@ -26,7 +40,7 @@ const input = document.getElementById('fileInput');
         const wb = XLSX.utils.book_new();
         
         // Для каждой таблицы создаем отдельный лист
-        extractedData.forEach((tableData, index) => {
+        tables.forEach((tableData, index) => {
           // Подготавливаем данные для Excel
           const excelData = [];
           
@@ -35,15 +49,66 @@ const input = document.getElementById('fileInput');
           excelData.push([]); // Пустая строка для разделения
           
           // Добавляем данные таблицы
-          tableData.table.forEach(row => {
-            excelData.push(row);
-          });
+          if (tableData.table && tableData.table.length > 0) {
+            // Добавляем строки с данными
+            tableData.table.forEach(row => {
+              // Убираем HTML теги из текста для чистого Excel
+              const cleanRow = row.map(cell => {
+                const div = document.createElement('div');
+                div.innerHTML = cell;
+                return div.textContent || div.innerText || '';
+              });
+              excelData.push(cleanRow);
+            });
+          }
           
           // Создаем worksheet
           const ws = XLSX.utils.aoa_to_sheet(excelData);
           
+          // Добавляем стили для заголовка (первая строка)
+          if (!ws['A1']) ws['A1'] = {t: 's'};
+          ws['A1'].s = {
+            font: {bold: true, sz: 14},
+            alignment: {horizontal: 'center'}
+          };
+          
+          // Устанавливаем ширину столбцов
+          const colWidths = [];
+          if (tableData.table && tableData.table.length > 0) {
+            const firstDataRow = tableData.table[0];
+            for (let i = 0; i < firstDataRow.length; i++) {
+              colWidths.push({wch: 20}); // Фиксированная ширина колонок
+            }
+            ws['!cols'] = colWidths;
+          }
+          
+          // Добавляем границы для всех ячеек с данными
+          const range = XLSX.utils.decode_range(ws['!ref']);
+          for (let R = range.s.r; R <= range.e.r; ++R) {
+            for (let C = range.s.c; C <= range.e.c; ++C) {
+              const cell_address = {c: C, r: R};
+              const cell_ref = XLSX.utils.encode_cell(cell_address);
+              
+              if (!ws[cell_ref]) continue;
+              
+              if (!ws[cell_ref].s) ws[cell_ref].s = {};
+              ws[cell_ref].s.border = {
+                top: {style: 'thin'},
+                bottom: {style: 'thin'},
+                left: {style: 'thin'},
+                right: {style: 'thin'}
+              };
+              
+              // Жирный шрифт для заголовков таблиц (первая строка данных)
+              if (R === 2 && tableData.table && tableData.table[0]) {
+                if (!ws[cell_ref].s.font) ws[cell_ref].s.font = {};
+                ws[cell_ref].s.font.bold = true;
+                ws[cell_ref].s.fill = {fgColor: {rgb: "E6E6FA"}}; // Светло-фиолетовый фон
+              }
+            }
+          }
+          
           // Добавляем worksheet в книгу
-          // Используем безопасное имя для листа (максимум 31 символ, без запрещенных символов)
           let sheetName = tableData.title.replace(/[\\/*?:[\]]/g, '').substring(0, 31);
           if (sheetName === '') sheetName = `Таблица ${index + 1}`;
           
@@ -58,6 +123,146 @@ const input = document.getElementById('fileInput');
         console.error('Ошибка при экспорте в Excel:', error);
         alert('Произошла ошибка при создании Excel файла: ' + error.message);
       }
+    }
+
+    // Показать модальное окно выбора таблиц
+    function showExportModal() {
+      // Очищаем список таблиц
+      tableList.innerHTML = '';
+      
+      // Заполняем список таблиц с уникальными идентификаторами
+      extractedData.forEach((table, index) => {
+        const listItem = document.createElement('div');
+        listItem.className = 'table-list-item';
+        listItem.innerHTML = `
+          <input type="checkbox" class="table-checkbox" id="modal-table-${index}" data-index="${index}" checked>
+          <label for="modal-table-${index}" class="flex-1">${table.title} (ID: ${index})</label>
+        `;
+        tableList.appendChild(listItem);
+      });
+      
+      // Устанавливаем checkbox "Выбрать все" в отмеченное состояние
+      selectAllCheckbox.checked = true;
+      
+      // Показываем модальное окно
+      exportModal.classList.add('visible');
+    }
+
+    // Обновление заголовка таблицы
+    function updateTableTitle(index, newTitle) {
+      if (extractedData[index]) {
+        extractedData[index].title = newTitle;
+        saveTableContent();
+      }
+    }
+
+    // Удаление таблицы
+    function deleteTable(index) {
+      if (confirm('Вы уверены, что хотите удалить эту таблицу?')) {
+        // Удаляем из данных
+        extractedData.splice(index, 1);
+        
+        // Перерисовываем интерфейс
+        renderTables();
+        
+        // Сохраняем изменения
+        saveTableContent();
+        
+        // Если таблиц не осталось, деактивируем кнопки
+        if (extractedData.length === 0) {
+          downloadBtn.disabled = true;
+          downloadExcelBtn.disabled = true;
+          uploadBtn.disabled = true;
+        }
+      }
+    }
+
+    // Перерисовка таблиц в интерфейсе
+    function renderTables() {
+      tablesContainer.innerHTML = '';
+      
+      extractedData.forEach((tableData, idx) => {
+        // Создаём редактируемую таблицу
+        const editableTable = document.createElement('table');
+        if (tableData.table && tableData.table.length > 0) {
+          tableData.table.forEach(row => {
+            const tr = document.createElement('tr');
+            row.forEach(cell => {
+              const td = document.createElement('td');
+              td.contentEditable = "true";
+              td.innerHTML = cell;
+              tr.appendChild(td);
+
+              // Добавляем обработчик для показа панели инструментов
+              td.addEventListener('click', (e) => {
+                // Убираем активный класс у предыдущей ячейки
+                if (activeCell) {
+                  activeCell.classList.remove('active-edit');
+                }
+                
+                // Устанавливаем новую активную ячейку
+                activeCell = td;
+                activeCell.classList.add('active-edit');
+                
+                // Показываем панель инструментов вверху экрана
+                toggleToolbar(true);
+              });
+              
+              // Добавляем обработчик ввода текста
+              td.addEventListener('input', () => {
+                saveTableContent();
+              });
+            });
+            editableTable.appendChild(tr);
+          });
+        }
+
+        const wrapper = document.createElement('div');
+        wrapper.className = "mb-8";
+        wrapper.innerHTML = `
+          <div class="table-header">
+            <div class="flex items-center">
+              <h2 class="text-xl font-semibold text-slate-800 table-title-editable table-title" 
+                  data-index="${idx}" contenteditable="true">${tableData.title}</h2>
+              <span class="ml-2 text-sm text-gray-500">(ID: ${idx})</span>
+            </div>
+            <div class="table-actions">
+              <button class="table-action-btn export-single-btn" data-index="${idx}">
+                <i class="fas fa-file-export mr-1"></i> Экспорт
+              </button>
+              <button class="table-action-btn delete-btn" data-index="${idx}">
+                <i class="fas fa-trash mr-1"></i> Удалить
+              </button>
+            </div>
+          </div>
+        `;
+        wrapper.appendChild(editableTable);
+        tablesContainer.appendChild(wrapper);
+
+        // Добавляем обработчик для редактирования заголовка
+        const titleElement = wrapper.querySelector('.table-title-editable');
+        titleElement.addEventListener('blur', function() {
+          updateTableTitle(idx, this.textContent);
+        });
+
+        // Добавляем обработчик для экспорта одной таблицы
+        const exportButton = wrapper.querySelector('.export-single-btn');
+        exportButton.addEventListener('click', function() {
+          const tableIndex = parseInt(this.getAttribute('data-index'));
+          // Сначала сохраняем текущие данные
+          saveTableContent();
+          if (extractedData[tableIndex]) {
+            exportToExcel([extractedData[tableIndex]]);
+          }
+        });
+        
+        // Добавляем обработчик для удаления таблицы
+        const deleteButton = wrapper.querySelector('.delete-btn');
+        deleteButton.addEventListener('click', function() {
+          const tableIndex = parseInt(this.getAttribute('data-index'));
+          deleteTable(tableIndex);
+        });
+      });
     }
 
     // Показать/скрыть панель инструментов
@@ -254,8 +459,7 @@ const input = document.getElementById('fileInput');
     function parseTables(container) {
       const tables = container.querySelectorAll('table');
       extractedData = [];
-      tablesContainer.innerHTML = '';
-
+      
       tables.forEach((table, idx) => {
         const rows = Array.from(table.querySelectorAll('tr')).map(row =>
           Array.from(row.querySelectorAll('td,th')).map(cell => cell.textContent.trim())
@@ -265,46 +469,10 @@ const input = document.getElementById('fileInput');
         if (!title) title = `Таблица ${idx + 1}`;
 
         extractedData.push({ title, table: rows });
-
-        // Создаём редактируемую таблицу
-        const editableTable = document.createElement('table');
-        rows.forEach(row => {
-          const tr = document.createElement('tr');
-          row.forEach(cell => {
-            const td = document.createElement('td');
-            td.contentEditable = "true";
-            td.innerHTML = cell;
-            tr.appendChild(td);
-
-            // Добавляем обработчик для показа панели инструментов
-            td.addEventListener('click', (e) => {
-              // Убираем активный класс у предыдущей ячейки
-              if (activeCell) {
-                activeCell.classList.remove('active-edit');
-              }
-              
-              // Устанавливаем новую активную ячейку
-              activeCell = td;
-              activeCell.classList.add('active-edit');
-              
-              // Показываем панель инструментов вверху экрана
-              toggleToolbar(true);
-            });
-            
-            // Добавляем обработчик ввода текста
-            td.addEventListener('input', () => {
-              saveTableContent();
-            });
-          });
-          editableTable.appendChild(tr);
-        });
-
-        const wrapper = document.createElement('div');
-        wrapper.className = "mb-8";
-        wrapper.innerHTML = `<h2 class="text-xl font-semibold mb-3 text-slate-800">${title}</h2>`;
-        wrapper.appendChild(editableTable);
-        tablesContainer.appendChild(wrapper);
       });
+
+      // Рендерим таблицы
+      renderTables();
 
       if (extractedData.length > 0) {
         downloadBtn.disabled = false;
@@ -315,15 +483,50 @@ const input = document.getElementById('fileInput');
 
     function collectEditedTables() {
       const edited = [];
-      tablesContainer.querySelectorAll('div').forEach((wrapper, idx) => {
-        const title = wrapper.querySelector('h2')?.textContent || `Таблица ${idx + 1}`;
-        const rows = Array.from(wrapper.querySelectorAll('tr')).map(row =>
-          Array.from(row.querySelectorAll('td')).map(cell => cell.innerHTML.trim())
-        );
+      const tableWrappers = tablesContainer.querySelectorAll('div.mb-8');
+      
+      tableWrappers.forEach((wrapper, idx) => {
+        const titleElement = wrapper.querySelector('.table-title');
+        const title = titleElement ? titleElement.textContent : `Таблица ${idx + 1}`;
+        
+        const rows = [];
+        const tableRows = wrapper.querySelectorAll('tr');
+        
+        tableRows.forEach(row => {
+          const cells = Array.from(row.querySelectorAll('td')).map(cell => cell.innerHTML.trim());
+          rows.push(cells);
+        });
+        
         edited.push({ title, table: rows });
       });
+      
       return edited;
     }
+
+    // Обработчики для модального окна экспорта
+    downloadExcelBtn.addEventListener('click', showExportModal);
+
+    selectAllCheckbox.addEventListener('change', function() {
+      const checkboxes = tableList.querySelectorAll('.table-checkbox');
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = this.checked;
+      });
+    });
+
+    cancelExportBtn.addEventListener('click', function() {
+      exportModal.classList.remove('visible');
+    });
+
+    confirmExportBtn.addEventListener('click', function() {
+      const checkboxes = tableList.querySelectorAll('.table-checkbox:checked');
+      selectedTablesForExport = Array.from(checkboxes).map(checkbox => {
+        const index = parseInt(checkbox.getAttribute('data-index'));
+        return extractedData[index];
+      });
+      
+      exportModal.classList.remove('visible');
+      exportToExcel(selectedTablesForExport);
+    });
 
     input.addEventListener('change', async (event) => {
       const file = event.target.files[0];
@@ -351,9 +554,6 @@ const input = document.getElementById('fileInput');
       URL.revokeObjectURL(url);
     });
 
-    // Обработчик для кнопки скачивания Excel
-    downloadExcelBtn.addEventListener('click', exportToExcel);
-
     uploadBtn.addEventListener('click', async () => {
       const edited = collectEditedTables();
       try {
@@ -378,5 +578,10 @@ const input = document.getElementById('fileInput');
       if (!colorPalette.contains(e.target) && e.target !== colorPickerBtn) {
         colorPalette.classList.remove('visible');
         isSelectingColor = false;
+      }
+      
+      // Скрываем модальное окно при клике вне его
+      if (exportModal.classList.contains('visible') && e.target === exportModal) {
+        exportModal.classList.remove('visible');
       }
     });

@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="./document.ico" type="image/x-icon">
   <title>Редактируемые таблицы microsoft word</title>
   <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -84,6 +85,28 @@
     <button class="close-toolbar" title="Скрыть панель">
       <i class="fas fa-times"></i>
     </button>
+  </div>
+
+  <!-- Модальное окно выбора таблиц для экспорта -->
+  <div id="exportModal" class="export-modal">
+    <div class="modal-content">
+      <h3 class="text-lg font-semibold mb-4">Выбор таблиц для экспорта в Excel</h3>
+      <p class="text-sm text-gray-600 mb-4">Выберите таблицы, которые хотите экспортировать:</p>
+      
+      <div class="select-all-container">
+        <input type="checkbox" id="selectAllCheckbox" class="table-checkbox">
+        <label for="selectAllCheckbox" class="font-medium">Выбрать все таблицы</label>
+      </div>
+      
+      <div class="table-list" id="tableList">
+        <!-- Список таблиц будет добавлен динамически -->
+      </div>
+      
+      <div class="flex justify-end gap-2 mt-6">
+        <button id="cancelExport" class="px-4 py-2 bg-gray-500 text-white rounded-lg">Отмена</button>
+        <button id="confirmExport" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Экспортировать выбранные</button>
+      </div>
+    </div>
   </div>
 
   <div class="editor-container">
