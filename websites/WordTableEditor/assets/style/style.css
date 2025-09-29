@@ -3,7 +3,7 @@ body {
   transition: padding-top 0.3s ease;
 }
 table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-th, td { border: 1px solid #cbd5e1; padding: 0.75rem; min-width: 100px; }
+th, td { border: 1px solid #cbd5e1; padding: 0.75rem; min-width: 100px; position: relative; }
 td[contenteditable], th[contenteditable] { 
   background: #fffbeb; 
   min-height: 45px; 
@@ -46,7 +46,7 @@ td[contenteditable]:hover, th[contenteditable]:hover {
   cursor: pointer;
   color: #4f46e5;
   font-size: 14px;
-  transition: all 0.2s ease;
+  transition: all 2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .toolbar-btn:hover {
@@ -222,7 +222,25 @@ li {
 .delete-btn:hover {
   background: #b91c1c;
 }
-.export-modal {
+.column-btn {
+  background: #10b981;
+}
+.column-btn:hover {
+  background: #059669;
+}
+.row-btn {
+  background: #8b5cf6;
+}
+.row-btn:hover {
+  background: #7c3aed;
+}
+.cell-btn {
+  background: #f59e0b;
+}
+.cell-btn:hover {
+  background: #d97706;
+}
+.export-modal, .instruction-modal {
   display: none;
   position: fixed;
   top: 0;
@@ -234,7 +252,7 @@ li {
   align-items: center;
   justify-content: center;
 }
-.export-modal.visible {
+.export-modal.visible, .instruction-modal.visible {
   display: flex;
 }
 .modal-content {
@@ -242,7 +260,7 @@ li {
   padding: 20px;
   border-radius: 12px;
   width: 90%;
-  max-width: 500px;
+  max-width: 600px;
   max-height: 80vh;
   overflow-y: auto;
 }
@@ -264,4 +282,147 @@ li {
   padding: 8px;
   background: #f9fafb;
   border-radius: 6px;
+}
+.table-controls-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.column-controls, .row-controls {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  background: #f8fafc;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+.column-control-btn, .row-control-btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.column-control-btn {
+  background: #3b82f6;
+  color: white;
+}
+.column-control-btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.row-control-btn {
+  background: #8b5cf6;
+  color: white;
+}
+.row-control-btn:hover {
+  background: #7c3aed;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.delete-control-btn {
+  padding: 6px 10px;
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.delete-control-btn:hover {
+  background: #fee2e2;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.delete-control-btn i {
+  color: #ef4444;
+}
+.empty-cell {
+  background-color: #fef2f2 !important;
+}
+.empty-cell:hover {
+  background-color: #fee2e2 !important;
+}
+.row-number {
+  display: inline-block;
+  width: 25px;
+  text-align: center;
+  background: #f3f4f6;
+  border-right: 1px solid #d1d5db;
+  padding: 2px 5px;
+  font-weight: bold;
+}
+.table-controls-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-right: 8px;
+}
+.language-selector {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+.language-btn {
+  padding: 8px 12px;
+  background: #4f46e5;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+.language-btn:hover {
+  background: #3730a3;
+}
+.instruction-btn {
+  padding: 8px 16px;
+  background: #6366f1;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+  display: inline-block;
+}
+.instruction-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+}
+.instruction-content {
+  line-height: 1.6;
+}
+.instruction-section {
+  margin-bottom: 15px;
+}
+.instruction-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #4f46e5;
+}
+.instruction-list {
+  padding-left: 20px;
+}
+.instruction-list li {
+  margin-bottom: 5px;
 }

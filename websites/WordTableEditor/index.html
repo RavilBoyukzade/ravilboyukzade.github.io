@@ -30,13 +30,21 @@
 </head>
 <body class="flex flex-col items-center min-h-screen p-6">
 
+  <!-- Переключатель языка -->
+  <div class="language-selector">
+    <button id="languageBtn" class="language-btn">
+      <i class="fas fa-globe"></i>
+      <span id="currentLanguage">AZ</span>
+    </button>
+  </div>
+
   <!-- Панель инструментов текстового редактора -->
   <div id="textToolbar">
     <div class="editor-title">
-      <i class="fas fa-edit mr-2"></i>Редактор текста
+      <i class="fas fa-edit mr-2"></i><span data-translate="textEditor">Редактор текста</span>
     </div>
-    
-    <span class="toolbar-label">Шрифт:</span>
+
+    <span class="toolbar-label" data-translate="font">Шрифт:</span>
     <select id="fontName" class="toolbar-select">
       <option value="Arial">Arial</option>
       <option value="Helvetica">Helvetica</option>
@@ -45,8 +53,8 @@
       <option value="Courier New">Courier New</option>
       <option value="Verdana">Verdana</option>
     </select>
-    
-    <span class="toolbar-label">Размер:</span>
+
+    <span class="toolbar-label" data-translate="size">Размер:</span>
     <select id="fontSize" class="toolbar-select">
       <option value="8px">8px</option>
       <option value="10px">10px</option>
@@ -62,13 +70,16 @@
       <option value="42px">42px</option>
       <option value="48px">48px</option>
     </select>
-    
-    <button data-command="bold" class="toolbar-btn" title="Жирный"><i class="fas fa-bold"></i></button>
-    <button data-command="italic" class="toolbar-btn" title="Курсив"><i class="fas fa-italic"></i></button>
-    <button data-command="underline" class="toolbar-btn" title="Подчеркивание"><i class="fas fa-underline"></i></button>
-    
+
+    <button data-command="bold" class="toolbar-btn" title="Жирный" data-translate-title="bold"><i
+        class="fas fa-bold"></i></button>
+    <button data-command="italic" class="toolbar-btn" title="Курсив" data-translate-title="italic"><i
+        class="fas fa-italic"></i></button>
+    <button data-command="underline" class="toolbar-btn" title="Подчеркивание" data-translate-title="underline"><i
+        class="fas fa-underline"></i></button>
+
     <div class="color-picker-container">
-      <button id="colorPickerBtn" class="toolbar-btn" title="Выбор цвета">
+      <button id="colorPickerBtn" class="toolbar-btn" title="Выбор цвета" data-translate-title="colorPicker">
         <i class="fas fa-palette"></i>
       </button>
       <div id="colorPalette" class="color-palette">
@@ -90,17 +101,23 @@
         <div class="palette-color" style="background:#4b5563" data-value="#4b5563"></div>
       </div>
     </div>
-    
-    <button data-command="justifyLeft" class="toolbar-btn" title="По левому краю"><i class="fas fa-align-left"></i></button>
-    <button data-command="justifyCenter" class="toolbar-btn" title="По центру"><i class="fas fa-align-center"></i></button>
-    <button data-command="justifyRight" class="toolbar-btn" title="По правому краю"><i class="fas fa-align-right"></i></button>
-    
-    <button data-command="insertUnorderedList" class="toolbar-btn" title="Маркированный список"><i class="fas fa-list-ul"></i></button>
-    <button data-command="insertOrderedList" class="toolbar-btn" title="Нумерованный список"><i class="fas fa-list-ol"></i></button>
-    
-    <button data-command="removeFormat" class="toolbar-btn" title="Очистить форматирование"><i class="fas fa-eraser"></i></button>
 
-    <button class="close-toolbar" title="Скрыть панель">
+    <button data-command="justifyLeft" class="toolbar-btn" title="По левому краю" data-translate-title="alignLeft"><i
+        class="fas fa-align-left"></i></button>
+    <button data-command="justifyCenter" class="toolbar-btn" title="По центру" data-translate-title="alignCenter"><i
+        class="fas fa-align-center"></i></button>
+    <button data-command="justifyRight" class="toolbar-btn" title="По правому краю" data-translate-title="alignRight"><i
+        class="fas fa-align-right"></i></button>
+
+    <button data-command="insertUnorderedList" class="toolbar-btn" title="Маркированный список"
+      data-translate-title="unorderedList"><i class="fas fa-list-ul"></i></button>
+    <button data-command="insertOrderedList" class="toolbar-btn" title="Нумерованный список"
+      data-translate-title="orderedList"><i class="fas fa-list-ol"></i></button>
+
+    <button data-command="removeFormat" class="toolbar-btn" title="Очистить форматирование"
+      data-translate-title="removeFormat"><i class="fas fa-eraser"></i></button>
+
+    <button class="close-toolbar" title="Скрыть панель" data-translate-title="hideToolbar">
       <i class="fas fa-times"></i>
     </button>
   </div>
@@ -108,55 +125,109 @@
   <!-- Модальное окно выбора таблиц для экспорта -->
   <div id="exportModal" class="export-modal">
     <div class="modal-content">
-      <h3 class="text-lg font-semibold mb-4">Выбор таблиц для экспорта в Excel</h3>
-      <p class="text-sm text-gray-600 mb-4">Выберите таблицы, которые хотите экспортировать:</p>
-      
+      <h3 class="text-lg font-semibold mb-4" data-translate="exportTables">Выбор таблиц для экспорта в Excel</h3>
+      <p class="text-sm text-gray-600 mb-4" data-translate="exportDescription">Выберите таблицы, которые хотите
+        экспортировать:</p>
+
       <div class="select-all-container">
         <input type="checkbox" id="selectAllCheckbox" class="table-checkbox">
-        <label for="selectAllCheckbox" class="font-medium">Выбрать все таблицы</label>
+        <label for="selectAllCheckbox" class="font-medium" data-translate="selectAll">Выбрать все таблицы</label>
       </div>
-      
+
       <div class="table-list" id="tableList">
         <!-- Список таблиц будет добавлен динамически -->
       </div>
+
+      <div class="flex justify-end gap-2 mt-6">
+        <button id="cancelExport" class="px-4 py-2 bg-gray-500 text-white rounded-lg"
+          data-translate="cancel">Отмена</button>
+        <button id="confirmExport" class="px-4 py-2 bg-blue-600 text-white rounded-lg"
+          data-translate="exportSelected">Экспортировать выбранные</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно инструкции -->
+  <div id="instructionModal" class="instruction-modal visible">
+    <div class="modal-content">
+      <h3 class="text-lg font-semibold mb-4" data-translate="instructionTitle">Инструкция по использованию</h3>
+      
+      <div class="instruction-content">
+        <div class="instruction-section">
+          <h3 data-translate="instructionUpload">Загрузка документа</h3>
+          <ul class="instruction-list">
+            <li data-translate="instructionUpload1">Нажмите кнопку "Загрузить Word" для выбора файла</li>
+            <li data-translate="instructionUpload2">Поддерживаются только файлы формата .docx</li>
+            <li data-translate="instructionUpload3">После загрузки документа все таблицы будут извлечены и отображены</li>
+          </ul>
+        </div>
+        
+        <div class="instruction-section">
+          <h3 data-translate="instructionEditing">Редактирование таблиц</h3>
+          <ul class="instruction-list">
+            <li data-translate="instructionEditing1">Кликните на ячейку, чтобы редактировать её содержимое</li>
+            <li data-translate="instructionEditing2">Используйте панель инструментов для форматирования текста</li>
+            <li data-translate="instructionEditing3">Используйте кнопки управления для добавления/удаления строк и столбцов</li>
+            <li data-translate="instructionEditing4">Кликните на заголовок таблицы, чтобы изменить его</li>
+          </ul>
+        </div>
+        
+        <div class="instruction-section">
+          <h3 data-translate="instructionExport">Экспорт данных</h3>
+          <ul class="instruction-list">
+            <li data-translate="instructionExport1">Используйте кнопку "Скачать JSON" для сохранения данных в формате JSON</li>
+            <li data-translate="instructionExport2">Используйте кнопку "Скачать Excel" для экспорта в Excel</li>
+            <li data-translate="instructionExport3">Используйте кнопку "Отправить на сервер" для сохранения данных на сервере</li>
+          </ul>
+        </div>
+      </div>
       
       <div class="flex justify-end gap-2 mt-6">
-        <button id="cancelExport" class="px-4 py-2 bg-gray-500 text-white rounded-lg">Отмена</button>
-        <button id="confirmExport" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Экспортировать выбранные</button>
+        <button id="closeInstruction" class="px-4 py-2 bg-blue-600 text-white rounded-lg" data-translate="closeInstruction">Закрыть</button>
       </div>
     </div>
   </div>
 
   <div class="editor-container">
     <div class="editor-header text-center">
-      <h1 class="text-3xl font-bold mb-2">Редактируемые таблицы microsoft word</h1>
-      <p class="opacity-90">Загрузите документ Word и отредактируйте таблицы с помощью нашего инструмента</p>
+      <h1 class="text-3xl font-bold mb-2" data-translate="lessonPlan">Редактируемые таблицы microsoft word</h1>
+      <p class="opacity-90" data-translate="uploadDescription">Загрузите документ Word и отредактируйте таблицы с помощью нашего инструмента</p>
+      <button id="openInstruction" class="instruction-btn">
+        <i class="fas fa-info-circle mr-2"></i><span data-translate="instructionBtn">Инструкция</span>
+      </button>
     </div>
 
     <div class="editor-body">
       <div class="flex gap-4 mb-6 justify-center">
-        <label class="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center">
+        <label
+          class="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center">
           <input type="file" id="fileInput" accept=".docx" class="hidden">
-          <i class="fas fa-upload mr-2"></i>Загрузить Word
+          <i class="fas fa-upload mr-2"></i><span data-translate="uploadWord">Загрузить Word</span>
         </label>
 
-        <button id="downloadJson" class="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center" disabled>
-          <i class="fas fa-download mr-2"></i>Скачать JSON
+        <button id="downloadJson"
+          class="bg-yellow-400 hover:bg-yellow-500 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center"
+          disabled>
+          <i class="fas fa-download mr-2"></i><span data-translate="downloadJson">Скачать JSON</span>
         </button>
 
-        <button id="downloadExcel" class="bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center" disabled>
-          <i class="fas fa-file-excel mr-2"></i>Скачать Excel
+        <button id="downloadExcel"
+          class="bg-green-500 hover:bg-green-700 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center"
+          disabled>
+          <i class="fas fa-file-excel mr-2"></i><span data-translate="downloadExcel">Скачать Excel</span>
         </button>
 
-        <button id="uploadServer" class="bg-pink-500 hover:bg-pink-600 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center" disabled>
-          <i class="fas fa-paper-plane mr-2"></i>Отправить на сервер
+        <button id="uploadServer"
+          class="bg-pink-600 hover:bg-pink-700 text-white px-5 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg flex items-center"
+          disabled>
+          <i class="fas fa-paper-plane mr-2"></i><span data-translate="uploadServer">Отправить на сервер</span>
         </button>
       </div>
 
       <div id="tables" class="bg-white rounded-2xl p-6 border border-slate-200"></div>
     </div>
   </div>
-
+  <script src="./assets/js/lang.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
