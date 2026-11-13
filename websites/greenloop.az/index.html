@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GreenLoop — Circular Economy Marketplace for Recyclable Materials</title>
+<meta name="description" content="GreenLoop connects households and businesses with recyclers and industrial buyers to trade plastic, paper, metal, glass, textile and e-waste, with verified sellers and tracked CO₂ impact.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-links">
+      <span>📍 Piloting in Baku &amp; Absheron</span>
+      <span>Mon–Sat, 09:00–19:00</span>
+    </div>
+    <div class="topbar-links">
+      <a href="contact.html">Support</a>
+      <a href="vendor.html">Become a Partner</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="logo"><span class="logo-mark">♻</span> GreenLoop</a>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="sell.html">Sell Waste</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="vendor.html">Become a Partner</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="account.html?tab=wishlist" class="icon-btn" title="Wishlist">♡</a>
+      <a href="cart.html" class="icon-btn" title="Cart" style="position:relative;">🛒<span class="badge-dot" id="cart-badge" style="display:none;">0</span></a>
+      <div class="account-switch">
+        <a href="account.html" class="icon-btn" title="Buyer Account">☺</a>
+        <div class="account-switch-menu">
+          <a href="account.html">🧍 Buyer Account</a>
+          <a href="seller-account.html">🏭 Seller Account</a>
+        </div>
+      </div>
+      <a href="auth.html" class="btn btn-outline btn-sm">Log In</a>
+      <a href="auth.html#register" class="btn btn-primary btn-sm">Sign Up</a>
+      <button class="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <div class="eyebrow">CIRCULAR ECONOMY MARKETPLACE</div>
+      <h1>Give your waste materials a <span>second life</span></h1>
+      <p class="hero-sub">GreenLoop connects households, small businesses and manufacturers who have recyclable materials with certified recyclers and industrial buyers looking for them — transparent pricing, verified sellers, and measurable environmental impact on every deal.</p>
+      <div class="hero-actions">
+        <a href="sell.html" class="btn btn-primary">List Your Waste Material</a>
+        <a href="marketplace.html" class="btn btn-outline">Browse Marketplace</a>
+      </div>
+
+      <form class="search-panel" action="marketplace.html" data-demo-form data-success-message="Searching…">
+        <div class="search-field">
+          <label for="s-cat">Material</label>
+          <select id="s-cat" name="category">
+            <option value="">All categories</option>
+            <option>Plastic</option>
+            <option>Paper &amp; Cardboard</option>
+            <option>Metal</option>
+            <option>Glass</option>
+            <option>Textile</option>
+            <option>Electronics</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label for="s-loc">Location</label>
+          <select id="s-loc" name="location">
+            <option value="">Anywhere</option>
+            <option>Baku — Yasamal</option>
+            <option>Baku — Nasimi</option>
+            <option>Baku — Sabunchu</option>
+            <option>Absheron</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label for="s-key">Keyword</label>
+          <input id="s-key" type="text" placeholder="e.g. PET bottles, copper wire">
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+
+      <div class="hero-stats">
+        <div class="hero-stat"><b>1,240+</b><span>Active listings</span></div>
+        <div class="hero-stat"><b>310</b><span>Verified sellers &amp; buyers</span></div>
+        <div class="hero-stat"><b>18.6 t</b><span>Waste diverted from landfill</span></div>
+        <div class="hero-stat"><b>6.4 t</b><span>CO₂ emissions saved</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <span class="hero-badge-top">✓ Certified sellers only</span>
+      <div class="hero-float-card">
+        <div class="ico">🧴</div>
+        <div>
+          <b>Baled PET Plastic — 480 kg</b>
+          <span>Yasamal, Baku · seller rating 4.8 · 🍃 0.6 kg CO₂ saved / kg</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">MATERIAL CATEGORIES</div>
+        <h2>Browse by material type</h2>
+        <p>Every listing is sorted by material so recyclers and industrial buyers find exactly what they need.</p>
+      </div>
+      <a href="marketplace.html" class="btn btn-outline btn-sm">View all listings</a>
+    </div>
+    <div class="cat-grid">
+      <a href="marketplace.html?cat=plastic" class="cat-card" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Bales_of_PET_bottles_closeup.jpg?width=500');">
+        <div class="cat-icon">🧴</div>
+        <b>Plastic</b><span>312 listings</span>
+      </a>
+      <a href="marketplace.html?cat=paper" class="cat-card" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Recyclable_Cardboard_Packaging.jpg?width=500');">
+        <div class="cat-icon">📦</div>
+        <b>Paper &amp; Cardboard</b><span>268 listings</span>
+      </a>
+      <a href="marketplace.html?cat=metal" class="cat-card" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Steel_recycling_bales.jpg?width=500');">
+        <div class="cat-icon">⚙️</div>
+        <b>Metal</b><span>195 listings</span>
+      </a>
+      <a href="marketplace.html?cat=glass" class="cat-card" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Glass_Recycling_Container.jpg?width=500');">
+        <div class="cat-icon">🍾</div>
+        <b>Glass</b><span>121 listings</span>
+      </a>
+      <a href="marketplace.html?cat=textile" class="cat-card" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Afgedankt_textiel_gekleurd_07.07.2014.jpg?width=500');">
+        <div class="cat-icon">👕</div>
+        <b>Textile</b><span>167 listings</span>
+      </a>
+      <a href="marketplace.html?cat=electronics" class="cat-card" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Computer_Recycling.JPG?width=500');">
+        <div class="cat-icon">🔌</div>
+        <b>Electronics</b><span>177 listings</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED LISTINGS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">FRESH ON THE MARKET</div>
+        <h2>Featured listings</h2>
+        <p>Certified, verified and ready to negotiate.</p>
+      </div>
+      <a href="marketplace.html" class="btn btn-outline btn-sm">See all</a>
+    </div>
+    <div class="grid-4">
+
+      <div class="listing-card" data-id="plastic-feat-1" data-title="Baled clear PET bottles, 480 kg" data-category="plastic" data-matclass="mat-plastic" data-icon="🧴" data-price="0.42" data-default-weight="480" data-seller="EcoPlast Baku">
+        <a href="product.html" class="listing-media mat-plastic">
+          <span class="mat-icon-badge">🧴</span>
+          <span class="cert-badge">✓ Certified</span>
+          <span class="co2-chip">🍃 <b>0.6 kg/kg</b> CO₂ saved</span>
+        </a>
+        <div class="listing-body">
+          <span class="listing-cat-tag">Plastic · PET</span>
+          <h3 class="listing-title">Baled clear PET bottles, 480 kg</h3>
+          <div class="listing-meta"><span>📍 Yasamal, Baku</span><span>⚖ 480 kg</span></div>
+          <div class="listing-foot">
+            <div class="listing-price">₼0.42 <small>/ kg</small></div>
+            <div class="seller-mini"><span class="stars">★★★★★</span> 4.8</div>
+          </div>
+          <button class="btn btn-outline btn-sm btn-block" data-add-cart>+ Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="listing-card" data-id="paper-feat-1" data-title="Sorted corrugated cardboard, 1.2 t" data-category="paper" data-matclass="mat-paper" data-icon="📦" data-price="0.18" data-default-weight="1200" data-seller="Baku Paper Mill">
+        <a href="product.html" class="listing-media mat-paper">
+          <span class="mat-icon-badge">📦</span>
+          <span class="cert-badge">✓ Certified</span>
+          <span class="co2-chip">🍃 <b>0.9 kg/kg</b> CO₂ saved</span>
+        </a>
+        <div class="listing-body">
+          <span class="listing-cat-tag">Paper · Cardboard</span>
+          <h3 class="listing-title">Sorted corrugated cardboard, 1.2 t</h3>
+          <div class="listing-meta"><span>📍 Sabunchu, Baku</span><span>⚖ 1,200 kg</span></div>
+          <div class="listing-foot">
+            <div class="listing-price">₼0.18 <small>/ kg</small></div>
+            <div class="seller-mini"><span class="stars">★★★★★</span> 4.6</div>
+          </div>
+          <button class="btn btn-outline btn-sm btn-block" data-add-cart>+ Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="listing-card" data-id="metal-feat-1" data-title="Clean copper wire scrap, 65 kg" data-category="metal" data-matclass="mat-metal" data-icon="⚙️" data-price="9.20" data-default-weight="65" data-seller="MetalWorks MMC">
+        <a href="product.html" class="listing-media mat-metal">
+          <span class="mat-icon-badge">⚙️</span>
+          <span class="cert-badge">✓ Certified</span>
+          <span class="co2-chip">🍃 <b>1.8 kg/kg</b> CO₂ saved</span>
+        </a>
+        <div class="listing-body">
+          <span class="listing-cat-tag">Metal · Copper</span>
+          <h3 class="listing-title">Clean copper wire scrap, 65 kg</h3>
+          <div class="listing-meta"><span>📍 Nasimi, Baku</span><span>⚖ 65 kg</span></div>
+          <div class="listing-foot">
+            <div class="listing-price">₼9.20 <small>/ kg</small></div>
+            <div class="seller-mini"><span class="stars">★★★★★</span> 5.0</div>
+          </div>
+          <button class="btn btn-outline btn-sm btn-block" data-add-cart>+ Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="listing-card" data-id="electronics-feat-1" data-title="Small household e-waste lot, 40 kg" data-category="electronics" data-matclass="mat-electronics" data-icon="🔌" data-price="1.10" data-default-weight="40" data-seller="GreenTech Recycling">
+        <a href="product.html" class="listing-media mat-electronics">
+          <span class="mat-icon-badge">🔌</span>
+          <span class="co2-chip">🍃 <b>2.4 kg/kg</b> CO₂ saved</span>
+        </a>
+        <div class="listing-body">
+          <span class="listing-cat-tag">Electronics · Mixed e-waste</span>
+          <h3 class="listing-title">Small household e-waste lot, 40 kg</h3>
+          <div class="listing-meta"><span>📍 Absheron</span><span>⚖ 40 kg</span></div>
+          <div class="listing-foot">
+            <div class="listing-price">₼1.10 <small>/ kg</small></div>
+            <div class="seller-mini"><span class="stars">★★★★☆</span> 4.2</div>
+          </div>
+          <button class="btn btn-outline btn-sm btn-block" data-add-cart>+ Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">HOW IT WORKS</div>
+        <h2>From a spare bag of scrap to a completed, rated deal</h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>List your material</h4>
+        <p>Add category, weight, quality grade, photos and your location — listed in minutes.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Get offers</h4>
+        <p>Buyers browse, filter and send price offers. Negotiate directly in-app chat.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Pay into escrow</h4>
+        <p>Funds are held securely until pickup is confirmed — for both sides' protection.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4>Pickup &amp; delivery</h4>
+        <p>Arrange courier pickup and track the batch until it reaches the buyer.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <h4>Rate &amp; get paid</h4>
+        <p>Escrow releases automatically, both sides leave a rating, and it's done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">WHY GREENLOOP</div>
+        <h2>Value for every side of the circular economy</h2>
+      </div>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="ico">🌍</div>
+        <h4>Environmental impact</h4>
+        <p>Reusing materials cuts demand for raw resources and keeps carbon emissions in check — every batch tracked and reported.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="ico">💰</div>
+        <h4>Economic savings</h4>
+        <p>Recycled input material costs less than virgin resources, cutting production costs for buyers and creating income for sellers.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="ico">🤝</div>
+        <h4>Social wellbeing</h4>
+        <p>Less pollution and lower emissions mean a cleaner environment — and lower long-term healthcare costs for the community.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="ico">🔍</div>
+        <h4>Full transparency</h4>
+        <p>Every transaction, pricing rule and seller verification step is recorded and visible — including our published commission policy.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="ico">📶</div>
+        <h4>Easy access</h4>
+        <p>Sellers reach buyers across categories instantly; buyers get full material details and can message sellers directly.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="ico">⚡</div>
+        <h4>Real efficiency</h4>
+        <p>Automated matching between supply and demand means both sides reach an agreement in a fraction of the usual time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h3>Have recyclable material sitting around?</h3>
+        <p>Turn it into revenue in minutes — post your first listing for free.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="sell.html" class="btn btn-white">Post a Listing</a>
+        <a href="vendor.html" class="btn" style="border:1px solid rgba(255,255,255,.6);color:#fff;">Become a Partner</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo" style="color:#fff;"><span class="logo-mark">♻</span> GreenLoop</div>
+        <p>GreenLoop connects households, businesses and manufacturers with recyclers and industrial buyers — turning discarded plastic, paper, metal, glass, textile and e-waste back into resources.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div>
+        <h5>Marketplace</h5>
+        <ul>
+          <li><a href="marketplace.html?cat=plastic">Plastic</a></li>
+          <li><a href="marketplace.html?cat=paper">Paper &amp; Cardboard</a></li>
+          <li><a href="marketplace.html?cat=metal">Metal</a></li>
+          <li><a href="marketplace.html?cat=glass">Glass</a></li>
+          <li><a href="marketplace.html?cat=textile">Textile</a></li>
+          <li><a href="marketplace.html?cat=electronics">Electronics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="sell.html">List Your Waste</a></li>
+          <li><a href="vendor.html">Become a Buyer/Partner</a></li>
+          <li><a href="analytics.html">Ecological Analytics</a></li>
+          <li><a href="account.html">My Account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Trust &amp; Safety</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>Baku, Azerbaijan</li>
+          <li>hello@greenloop.market</li>
+          <li>+994 12 000 00 00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GreenLoop Circular Marketplace. All rights reserved.</span>
+      <span>Pilot phase — Baku &amp; Absheron region</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
