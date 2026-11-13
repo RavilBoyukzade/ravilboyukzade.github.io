@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buyer Account — GreenLoop</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-links"><span>📍 Piloting in Baku &amp; Absheron</span><span>Mon–Sat, 09:00–19:00</span></div>
+    <div class="topbar-links"><a href="contact.html">Support</a><a href="vendor.html">Become a Partner</a></div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="logo"><span class="logo-mark">♻</span> GreenLoop</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="sell.html">Sell Waste</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="vendor.html">Become a Partner</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="account.html?tab=wishlist" class="icon-btn" title="Wishlist">♡</a>
+      <a href="cart.html" class="icon-btn" title="Cart" style="position:relative;">🛒<span class="badge-dot" id="cart-badge" style="display:none;">0</span></a>
+      <div class="account-switch">
+        <a href="account.html" class="icon-btn" title="Buyer Account">☺</a>
+        <div class="account-switch-menu">
+          <a href="account.html">🧍 Buyer Account</a>
+          <a href="seller-account.html">🏭 Seller Account</a>
+        </div>
+      </div>
+      <a href="auth.html" class="btn btn-outline btn-sm">Log In</a>
+      <a href="auth.html#register" class="btn btn-primary btn-sm">Sign Up</a>
+      <button class="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Buyer Account</div>
+    <h1>Buyer Account</h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <div class="role-banner">
+      <span>🧍 You're viewing the <b>Buyer Account</b> — send offers, buy materials, track your orders.</span>
+      <a href="seller-account.html">See it from the Seller's side →</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+      <div class="avatar" style="width:64px;height:64px;font-size:1.2rem;">RA</div>
+      <div>
+        <h3 style="margin-bottom:2px;">Ravil Abbasov</h3>
+        <span class="badge">✓ Identity verified</span> <span class="muted" style="margin-left:8px;">Individual buyer · FIN 7ABC123 · Member since Jan 2026</span>
+      </div>
+    </div>
+
+    <div data-tabs>
+      <div class="tab-row">
+        <button class="tab-btn active" data-tab="requests">Sent Requests</button>
+        <button class="tab-btn" data-tab="orders">Order History</button>
+        <button class="tab-btn" data-tab="wishlist">Wishlist</button>
+        <button class="tab-btn" data-tab="profile">Profile Settings</button>
+        <button class="tab-btn" data-tab="password">Change Password</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="requests">
+        <p class="muted" style="margin-bottom:16px;">Offers and cart orders you've sent to sellers — sent from the Marketplace or a listing page.</p>
+        <div id="buyer-requests-list"></div>
+      </div>
+
+      <div class="tab-panel" data-panel="orders">
+        <div style="overflow-x:auto;">
+          <table class="data-table">
+            <thead><tr><th>Order</th><th>Material</th><th>Counterparty</th><th>Amount</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>#GL-10493</td><td>Copper wire, 65 kg</td><td>MetalWorks MMC</td><td>₼598.00</td><td><span class="status-pill transit">In Transit</span></td></tr>
+              <tr><td>#GL-10471</td><td>Cardboard, 1.2 t</td><td>Baku Paper Mill</td><td>₼216.00</td><td><span class="status-pill done">Completed</span></td></tr>
+              <tr><td>#GL-10402</td><td>Glass bottles, 600 kg</td><td>EcoGlass Baku</td><td>₼48.00</td><td><span class="status-pill done">Completed</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="wishlist">
+        <div class="grid-3">
+          <div class="listing-card" data-id="electronics-wish-1" data-title="Small household e-waste lot" data-category="electronics" data-matclass="mat-electronics" data-icon="🔌" data-price="1.10" data-default-weight="40" data-seller="GreenTech Recycling">
+            <a href="product.html" class="listing-media mat-electronics"><span class="co2-chip">🍃 <b>2.4 kg/kg</b></span><span class="mat-icon-badge">🔌</span></a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Electronics</span>
+              <h3 class="listing-title">Small household e-waste lot</h3>
+              <div class="listing-foot"><div class="listing-price">₼1.10 <small>/ kg</small></div></div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart>+ Add to Cart</button>
+            </div>
+          </div>
+          <div class="listing-card" data-id="textile-wish-1" data-title="Factory offcut textile scraps" data-category="textile" data-matclass="mat-textile" data-icon="👕" data-price="0.40" data-default-weight="220" data-seller="Fabric Loop LLC">
+            <a href="product.html" class="listing-media mat-textile"><span class="co2-chip">🍃 <b>3.1 kg/kg</b></span><span class="mat-icon-badge">👕</span></a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Textile</span>
+              <h3 class="listing-title">Factory offcut textile scraps</h3>
+              <div class="listing-foot"><div class="listing-price">₼0.40 <small>/ kg</small></div></div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart>+ Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="profile">
+        <form class="form-card" data-demo-form data-success-message="Profile updated.">
+          <div class="form-grid">
+            <div class="field"><label for="fname">Full name</label><input id="fname" value="Ravil Abbasov"></div>
+            <div class="field"><label for="femail">Email</label><input id="femail" type="email" value="ravil@example.com"></div>
+            <div class="field"><label for="fphone">Phone</label><input id="fphone" value="+994 50 000 00 00"></div>
+            <div class="field"><label for="ffin">FIN code <span class="hint">— from ID card / passport</span></label><input id="ffin" value="7ABC123"></div>
+          </div>
+          <button class="btn btn-primary" type="submit">Save Changes</button>
+          <p class="form-note muted" style="display:none;margin-top:12px;"></p>
+        </form>
+      </div>
+
+      <div class="tab-panel" data-panel="password">
+        <form class="form-card" data-demo-form data-success-message="Password updated.">
+          <div class="field"><label for="cur">Current password</label><input id="cur" type="password"></div>
+          <div class="field"><label for="new1">New password</label><input id="new1" type="password"></div>
+          <div class="field"><label for="new2">Confirm new password</label><input id="new2" type="password"></div>
+          <button class="btn btn-primary" type="submit">Update Password</button>
+          <p class="form-note muted" style="display:none;margin-top:12px;"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo" style="color:#fff;"><span class="logo-mark">♻</span> GreenLoop</div>
+        <p>GreenLoop connects households, businesses and manufacturers with recyclers and industrial buyers — turning discarded plastic, paper, metal, glass, textile and e-waste back into resources.</p>
+        <div class="social-row"><a href="#">f</a><a href="#">in</a><a href="#">ig</a></div>
+      </div>
+      <div>
+        <h5>Marketplace</h5>
+        <ul>
+          <li><a href="marketplace.html?cat=plastic">Plastic</a></li>
+          <li><a href="marketplace.html?cat=paper">Paper &amp; Cardboard</a></li>
+          <li><a href="marketplace.html?cat=metal">Metal</a></li>
+          <li><a href="marketplace.html?cat=glass">Glass</a></li>
+          <li><a href="marketplace.html?cat=textile">Textile</a></li>
+          <li><a href="marketplace.html?cat=electronics">Electronics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="sell.html">List Your Waste</a></li>
+          <li><a href="vendor.html">Become a Buyer/Partner</a></li>
+          <li><a href="analytics.html">Ecological Analytics</a></li>
+          <li><a href="account.html">My Account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Trust &amp; Safety</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>Baku, Azerbaijan</li>
+          <li>hello@greenloop.market</li>
+          <li>+994 12 000 00 00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GreenLoop Circular Marketplace. All rights reserved.</span>
+      <span>Pilot phase — Baku &amp; Absheron region</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+  function renderBuyerRequests() {
+    var list = GL.getRequests();
+    var el = document.getElementById('buyer-requests-list');
+    if (!list.length) {
+      el.innerHTML = '<div class="empty-state">🗂 No requests sent yet. Browse the <a href="marketplace.html" style="color:var(--green-700);font-weight:600;">Marketplace</a> or make an offer on a listing.</div>';
+      return;
+    }
+    el.innerHTML = list.map(function (r) {
+      var statusClass = r.status === 'accepted' ? 'done' : r.status === 'declined' ? 'declined' : 'pending';
+      var statusLabel = r.status === 'accepted' ? 'Accepted' : r.status === 'declined' ? 'Declined' : 'Pending';
+      var kindLabel = r.type === 'offer' ? 'Offer' : 'Cart order';
+      return '' +
+        '<div class="request-row">' +
+          '<div class="thumb ' + r.matClass + '"></div>' +
+          '<div class="info">' +
+            '<b>' + r.title + '</b>' +
+            '<span>' + kindLabel + ' to <b>' + r.seller + '</b> · ' + r.weight + ' kg @ ₼' + r.pricePerKg + '/kg · total ₼' + r.total + '</span>' +
+            '<span>' + GL.timeAgo(r.createdAt) + '</span>' +
+          '</div>' +
+          '<span class="status-pill ' + statusClass + '">' + statusLabel + '</span>' +
+        '</div>';
+    }).join('');
+  }
+  renderBuyerRequests();
+</script>
+</body>
+</html>

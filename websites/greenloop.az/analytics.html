@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ecological Analytics — GreenLoop</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-links"><span>📍 Piloting in Baku &amp; Absheron</span><span>Mon–Sat, 09:00–19:00</span></div>
+    <div class="topbar-links"><a href="contact.html">Support</a><a href="vendor.html">Become a Partner</a></div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="logo"><span class="logo-mark">♻</span> GreenLoop</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="sell.html">Sell Waste</a>
+      <a href="analytics.html" class="active">Analytics</a>
+      <a href="vendor.html">Become a Partner</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="account.html?tab=wishlist" class="icon-btn" title="Wishlist">♡</a>
+      <a href="cart.html" class="icon-btn" title="Cart" style="position:relative;">🛒<span class="badge-dot" id="cart-badge" style="display:none;">0</span></a>
+      <div class="account-switch">
+        <a href="account.html" class="icon-btn" title="Buyer Account">☺</a>
+        <div class="account-switch-menu">
+          <a href="account.html">🧍 Buyer Account</a>
+          <a href="seller-account.html">🏭 Seller Account</a>
+        </div>
+      </div>
+      <a href="auth.html" class="btn btn-outline btn-sm">Log In</a>
+      <a href="auth.html#register" class="btn btn-primary btn-sm">Sign Up</a>
+      <button class="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Ecological Analytics</div>
+    <h1>Ecological Analytics Dashboard</h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">PILOT PERIOD · LAST 12 MONTHS</div>
+        <h2>Platform impact at a glance</h2>
+        <p>Live indicators of how much waste GreenLoop has diverted from landfills and the CO₂ emissions avoided as a result.</p>
+      </div>
+      <select style="border:1px solid var(--line);border-radius:8px;padding:9px 12px;">
+        <option>Last 12 months</option>
+        <option>Last 6 months</option>
+        <option>Last 30 days</option>
+      </select>
+    </div>
+
+    <!-- KPI CARDS -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-ico">🍃</div>
+          <span class="kpi-trend up">▲ 18%</span>
+        </div>
+        <div class="kpi-value">6.4 t</div>
+        <div class="kpi-label">Total CO₂ emissions saved</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-ico">♻</div>
+          <span class="kpi-trend up">▲ 12%</span>
+        </div>
+        <div class="kpi-value">18.6 t</div>
+        <div class="kpi-label">Waste diverted from landfill</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-ico">🤝</div>
+          <span class="kpi-trend up">▲ 9%</span>
+        </div>
+        <div class="kpi-value">214</div>
+        <div class="kpi-label">Completed transactions</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-ico">★</div>
+          <span class="kpi-trend up">▲ 0.2</span>
+        </div>
+        <div class="kpi-value">4.6 / 5</div>
+        <div class="kpi-label">Average buyer &amp; seller rating</div>
+      </div>
+    </div>
+
+    <!-- CO2 DYNAMICS + CATEGORY BREAKDOWN -->
+    <div class="dash-grid">
+      <div class="panel">
+        <h3>CO₂ savings dynamics</h3>
+        <p class="sub">Cumulative CO₂ saved per month across all completed deals (tons)</p>
+        <svg viewBox="0 0 600 220" style="width:100%;height:auto;">
+          <line x1="40" y1="190" x2="580" y2="190" stroke="#dcece0" stroke-width="1"/>
+          <line x1="40" y1="20" x2="40" y2="190" stroke="#dcece0" stroke-width="1"/>
+          <defs>
+            <linearGradient id="co2fill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2ea855" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#2ea855" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M40,190 L40,154 L89,146 L138,150 L187,134 L236,126 L285,118 L334,106 L383,94 L432,86 L481,70 L530,54 L579,34 L579,190 Z" fill="url(#co2fill)"/>
+          <polyline points="40,154 89,146 138,150 187,134 236,126 285,118 334,106 383,94 432,86 481,70 530,54 579,34" fill="none" stroke="#1b7a3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <g fill="#1b7a3a">
+            <circle cx="40" cy="154" r="4"/><circle cx="89" cy="146" r="4"/><circle cx="138" cy="150" r="4"/>
+            <circle cx="187" cy="134" r="4"/><circle cx="236" cy="126" r="4"/><circle cx="285" cy="118" r="4"/>
+            <circle cx="334" cy="106" r="4"/><circle cx="383" cy="94" r="4"/><circle cx="432" cy="86" r="4"/>
+            <circle cx="481" cy="70" r="4"/><circle cx="530" cy="54" r="4"/><circle cx="579" cy="34" r="5" stroke="#fff" stroke-width="2"/>
+          </g>
+          <g fill="#48594e" font-size="11" font-family="Inter,sans-serif" text-anchor="middle">
+            <text x="40" y="208">Oct</text><text x="89" y="208">Nov</text><text x="138" y="208">Dec</text>
+            <text x="187" y="208">Jan</text><text x="236" y="208">Feb</text><text x="285" y="208">Mar</text>
+            <text x="334" y="208">Apr</text><text x="383" y="208">May</text><text x="432" y="208">Jun</text>
+            <text x="481" y="208">Jul</text><text x="530" y="208">Aug</text><text x="579" y="208">Sep</text>
+          </g>
+        </svg>
+        <div class="legend-row">
+          <div class="legend-item"><span class="legend-dot" style="background:#1b7a3a;"></span> CO₂ saved (t / month)</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Category breakdown</h3>
+        <p class="sub">Share of total traded volume by material</p>
+        <div style="display:flex;justify-content:center;margin:12px 0 18px;">
+          <div style="width:190px;height:190px;border-radius:50%;position:relative;
+                background:conic-gradient(#2e9e52 0 32%, #8a6d3b 32% 56%, #5b6b73 56% 72%, #1b7a8a 72% 82%, #7a3b8a 82% 94%, #1b4b7a 94% 100%);">
+            <div style="position:absolute;inset:28px;background:#fff;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+              <b style="font-family:var(--font-head);font-size:1.2rem;color:var(--green-900);">18.6 t</b>
+              <span class="muted" style="font-size:.72rem;">total traded</span>
+            </div>
+          </div>
+        </div>
+        <div class="legend-row" style="justify-content:center;">
+          <div class="legend-item"><span class="legend-dot" style="background:#2e9e52;"></span> Plastic — 32%</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#8a6d3b;"></span> Paper — 24%</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#5b6b73;"></span> Metal — 16%</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#1b7a8a;"></span> Glass — 10%</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#7a3b8a;"></span> Textile — 12%</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#1b4b7a;"></span> Electronics — 6%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECENT DEALS -->
+    <div class="panel" style="margin-top:20px;">
+      <h3>Recent deals</h3>
+      <p class="sub">Latest completed and in-progress transactions across the platform</p>
+      <div style="overflow-x:auto;">
+        <table class="data-table">
+          <thead>
+            <tr><th>Date</th><th>Material</th><th>Weight</th><th>Buyer</th><th>CO₂ saved</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Sep 9, 2026</td><td>🧴 PET Plastic</td><td>480 kg</td><td>Recycle Plus LLC</td><td>288 kg</td><td><span class="status-pill done">Completed</span></td></tr>
+            <tr><td>Sep 8, 2026</td><td>📦 Cardboard</td><td>1,200 kg</td><td>Baku Paper Mill</td><td>1,080 kg</td><td><span class="status-pill done">Completed</span></td></tr>
+            <tr><td>Sep 7, 2026</td><td>⚙️ Copper wire</td><td>65 kg</td><td>MetalWorks MMC</td><td>117 kg</td><td><span class="status-pill transit">In Transit</span></td></tr>
+            <tr><td>Sep 6, 2026</td><td>🍾 Glass bottles</td><td>600 kg</td><td>EcoGlass Baku</td><td>180 kg</td><td><span class="status-pill done">Completed</span></td></tr>
+            <tr><td>Sep 5, 2026</td><td>👕 Cotton textile</td><td>220 kg</td><td>ReTex Absheron</td><td>682 kg</td><td><span class="status-pill pending">Pending pickup</span></td></tr>
+            <tr><td>Sep 4, 2026</td><td>🔌 E-waste lot</td><td>40 kg</td><td>GreenTech Recycling</td><td>96 kg</td><td><span class="status-pill done">Completed</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo" style="color:#fff;"><span class="logo-mark">♻</span> GreenLoop</div>
+        <p>GreenLoop connects households, businesses and manufacturers with recyclers and industrial buyers — turning discarded plastic, paper, metal, glass, textile and e-waste back into resources.</p>
+        <div class="social-row"><a href="#">f</a><a href="#">in</a><a href="#">ig</a></div>
+      </div>
+      <div>
+        <h5>Marketplace</h5>
+        <ul>
+          <li><a href="marketplace.html?cat=plastic">Plastic</a></li>
+          <li><a href="marketplace.html?cat=paper">Paper &amp; Cardboard</a></li>
+          <li><a href="marketplace.html?cat=metal">Metal</a></li>
+          <li><a href="marketplace.html?cat=glass">Glass</a></li>
+          <li><a href="marketplace.html?cat=textile">Textile</a></li>
+          <li><a href="marketplace.html?cat=electronics">Electronics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="sell.html">List Your Waste</a></li>
+          <li><a href="vendor.html">Become a Buyer/Partner</a></li>
+          <li><a href="analytics.html">Ecological Analytics</a></li>
+          <li><a href="account.html">My Account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Trust &amp; Safety</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>Baku, Azerbaijan</li>
+          <li>hello@greenloop.market</li>
+          <li>+994 12 000 00 00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GreenLoop Circular Marketplace. All rights reserved.</span>
+      <span>Pilot phase — Baku &amp; Absheron region</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

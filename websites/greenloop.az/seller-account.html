@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seller Account — GreenLoop</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-links"><span>📍 Piloting in Baku &amp; Absheron</span><span>Mon–Sat, 09:00–19:00</span></div>
+    <div class="topbar-links"><a href="contact.html">Support</a><a href="vendor.html">Become a Partner</a></div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="logo"><span class="logo-mark">♻</span> GreenLoop</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="sell.html">Sell Waste</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="vendor.html">Become a Partner</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="account.html?tab=wishlist" class="icon-btn" title="Wishlist">♡</a>
+      <a href="cart.html" class="icon-btn" title="Cart" style="position:relative;">🛒<span class="badge-dot" id="cart-badge" style="display:none;">0</span></a>
+      <div class="account-switch">
+        <a href="seller-account.html" class="icon-btn" title="Seller Account">🏭</a>
+        <div class="account-switch-menu">
+          <a href="account.html">🧍 Buyer Account</a>
+          <a href="seller-account.html">🏭 Seller Account</a>
+        </div>
+      </div>
+      <a href="auth.html" class="btn btn-outline btn-sm">Log In</a>
+      <a href="auth.html#register" class="btn btn-primary btn-sm">Sign Up</a>
+      <button class="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Seller Account</div>
+    <h1>Seller Account</h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <div class="role-banner">
+      <span>🏭 You're viewing the <b>Seller Account</b> — manage listings and respond to incoming buyer requests.</span>
+      <a href="account.html">See it from the Buyer's side →</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+      <div class="avatar" style="width:64px;height:64px;font-size:1.1rem;">EP</div>
+      <div>
+        <h3 style="margin-bottom:2px;">EcoPlast Baku LLC</h3>
+        <span class="badge">✓ Business verified</span> <span class="muted" style="margin-left:8px;">VÖEN 1234567890 · Member since Jan 2026 · 4.8★ (56 deals)</span>
+      </div>
+    </div>
+
+    <div class="kpi-grid" style="margin-bottom:32px;">
+      <div class="kpi-card">
+        <div class="kpi-top"><div class="kpi-ico">📦</div><span class="kpi-trend up">▲ 3</span></div>
+        <div class="kpi-value">3</div>
+        <div class="kpi-label">Active listings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top"><div class="kpi-ico">📨</div><span class="kpi-trend up" id="kpi-pending">0</span></div>
+        <div class="kpi-value" id="kpi-pending-value">0</div>
+        <div class="kpi-label">Pending requests</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top"><div class="kpi-ico">💰</div><span class="kpi-trend up">▲ 12%</span></div>
+        <div class="kpi-value">₼4,860</div>
+        <div class="kpi-label">Revenue (last 30 days)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top"><div class="kpi-ico">🍃</div><span class="kpi-trend up">▲ 8%</span></div>
+        <div class="kpi-value">1.9 t</div>
+        <div class="kpi-label">CO₂ saved via your listings</div>
+      </div>
+    </div>
+
+    <div data-tabs>
+      <div class="tab-row">
+        <button class="tab-btn active" data-tab="incoming">Incoming Requests</button>
+        <button class="tab-btn" data-tab="listings">My Listings</button>
+        <button class="tab-btn" data-tab="sales">Sales History</button>
+        <button class="tab-btn" data-tab="profile">Business Profile</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="incoming">
+        <p class="muted" style="margin-bottom:16px;">Offers and cart orders buyers have sent for your listings. Accept to move a deal into escrow, or decline.</p>
+        <div id="seller-requests-list"></div>
+      </div>
+
+      <div class="tab-panel" data-panel="listings">
+        <div style="overflow-x:auto;">
+          <table class="data-table">
+            <thead><tr><th>Listing</th><th>Category</th><th>Weight</th><th>Price / kg</th><th>Status</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>Baled clear PET bottles</td><td>Plastic</td><td>480 kg</td><td>₼0.42</td><td><span class="status-pill done">Live</span></td><td><a href="product.html" class="btn btn-outline btn-sm">View</a></td></tr>
+              <tr><td>Shredded office paper</td><td>Paper</td><td>340 kg</td><td>₼0.15</td><td><span class="status-pill pending">Under review</span></td><td><a href="#" class="btn btn-outline btn-sm">Edit</a></td></tr>
+              <tr><td>Aluminium cans, compressed</td><td>Metal</td><td>150 kg</td><td>₼1.85</td><td><span class="status-pill transit">Reserved</span></td><td><a href="#" class="btn btn-outline btn-sm">Edit</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <a href="sell.html" class="btn btn-primary" style="margin-top:18px;">+ Post a New Listing</a>
+      </div>
+
+      <div class="tab-panel" data-panel="sales">
+        <div style="overflow-x:auto;">
+          <table class="data-table">
+            <thead><tr><th>Order</th><th>Material</th><th>Buyer</th><th>Amount</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>#GL-10493</td><td>Copper wire, 65 kg</td><td>MetalWorks MMC</td><td>₼598.00</td><td><span class="status-pill transit">In Transit</span></td></tr>
+              <tr><td>#GL-10471</td><td>Cardboard, 1.2 t</td><td>Baku Paper Mill</td><td>₼216.00</td><td><span class="status-pill done">Completed</span></td></tr>
+              <tr><td>#GL-10402</td><td>Glass bottles, 600 kg</td><td>EcoGlass Baku</td><td>₼48.00</td><td><span class="status-pill done">Completed</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="profile">
+        <form class="form-card" data-demo-form data-success-message="Business profile updated.">
+          <div class="form-grid">
+            <div class="field"><label for="bname">Company name</label><input id="bname" value="EcoPlast Baku LLC"></div>
+            <div class="field"><label for="bvoen">Tax ID (VÖEN)</label><input id="bvoen" value="1234567890"></div>
+            <div class="field"><label for="bemail">Business email</label><input id="bemail" type="email" value="sales@ecoplast.az"></div>
+            <div class="field"><label for="bphone">Phone</label><input id="bphone" value="+994 12 345 67 89"></div>
+          </div>
+          <button class="btn btn-primary" type="submit">Save Changes</button>
+          <p class="form-note muted" style="display:none;margin-top:12px;"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo" style="color:#fff;"><span class="logo-mark">♻</span> GreenLoop</div>
+        <p>GreenLoop connects households, businesses and manufacturers with recyclers and industrial buyers — turning discarded plastic, paper, metal, glass, textile and e-waste back into resources.</p>
+        <div class="social-row"><a href="#">f</a><a href="#">in</a><a href="#">ig</a></div>
+      </div>
+      <div>
+        <h5>Marketplace</h5>
+        <ul>
+          <li><a href="marketplace.html?cat=plastic">Plastic</a></li>
+          <li><a href="marketplace.html?cat=paper">Paper &amp; Cardboard</a></li>
+          <li><a href="marketplace.html?cat=metal">Metal</a></li>
+          <li><a href="marketplace.html?cat=glass">Glass</a></li>
+          <li><a href="marketplace.html?cat=textile">Textile</a></li>
+          <li><a href="marketplace.html?cat=electronics">Electronics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="sell.html">List Your Waste</a></li>
+          <li><a href="vendor.html">Become a Buyer/Partner</a></li>
+          <li><a href="analytics.html">Ecological Analytics</a></li>
+          <li><a href="account.html">My Account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Trust &amp; Safety</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>Baku, Azerbaijan</li>
+          <li>hello@greenloop.market</li>
+          <li>+994 12 000 00 00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GreenLoop Circular Marketplace. All rights reserved.</span>
+      <span>Pilot phase — Baku &amp; Absheron region</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+  function renderSellerRequests() {
+    var list = GL.getRequests();
+    var el = document.getElementById('seller-requests-list');
+    var pendingCount = list.filter(function (r) { return r.status === 'pending'; }).length;
+    document.getElementById('kpi-pending-value').textContent = pendingCount;
+    document.getElementById('kpi-pending').textContent = pendingCount ? '● new' : '—';
+
+    if (!list.length) {
+      el.innerHTML = '<div class="empty-state">📭 No requests yet. Go to a listing as a buyer (e.g. open <a href="product.html" style="color:var(--green-700);font-weight:600;">a product page</a> or your <a href="cart.html" style="color:var(--green-700);font-weight:600;">cart</a>) and send an offer or order to see it appear here instantly.</div>';
+      return;
+    }
+
+    el.innerHTML = list.map(function (r) {
+      var statusClass = r.status === 'accepted' ? 'done' : r.status === 'declined' ? 'declined' : 'pending';
+      var statusLabel = r.status === 'accepted' ? 'Accepted' : r.status === 'declined' ? 'Declined' : 'Pending';
+      var kindLabel = r.type === 'offer' ? 'Offer' : 'Cart order';
+      var actions = r.status === 'pending'
+        ? '<div class="request-actions">' +
+            '<button class="btn btn-primary btn-sm" data-accept="' + r.id + '">Accept</button>' +
+            '<button class="btn btn-outline btn-sm" data-decline="' + r.id + '">Decline</button>' +
+          '</div>'
+        : '<span class="status-pill ' + statusClass + '">' + statusLabel + '</span>';
+
+      return '' +
+        '<div class="request-row">' +
+          '<div class="thumb ' + r.matClass + '"></div>' +
+          '<div class="info">' +
+            '<b>' + r.title + '</b>' +
+            '<span>' + kindLabel + ' from <b>' + r.buyer + '</b> · ' + r.weight + ' kg @ ₼' + r.pricePerKg + '/kg · total ₼' + r.total + '</span>' +
+            (r.message ? '<span>💬 "' + r.message + '"</span>' : '') +
+            '<span>' + GL.timeAgo(r.createdAt) + '</span>' +
+          '</div>' +
+          actions +
+        '</div>';
+    }).join('');
+
+    el.querySelectorAll('[data-accept]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        GL.updateRequestStatus(btn.dataset.accept, 'accepted');
+        renderSellerRequests();
+      });
+    });
+    el.querySelectorAll('[data-decline]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        GL.updateRequestStatus(btn.dataset.decline, 'declined');
+        renderSellerRequests();
+      });
+    });
+  }
+  renderSellerRequests();
+</script>
+</body>
+</html>

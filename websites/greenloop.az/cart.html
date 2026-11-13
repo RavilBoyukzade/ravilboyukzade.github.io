@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Cart — GreenLoop</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-links"><span>📍 Piloting in Baku &amp; Absheron</span><span>Mon–Sat, 09:00–19:00</span></div>
+    <div class="topbar-links"><a href="contact.html">Support</a><a href="vendor.html">Become a Partner</a></div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="logo"><span class="logo-mark">♻</span> GreenLoop</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="sell.html">Sell Waste</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="vendor.html">Become a Partner</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="account.html?tab=wishlist" class="icon-btn" title="Wishlist">♡</a>
+      <a href="cart.html" class="icon-btn" title="Cart" style="position:relative;">🛒<span class="badge-dot" id="cart-badge" style="display:none;">0</span></a>
+      <div class="account-switch">
+        <a href="account.html" class="icon-btn" title="Buyer Account">☺</a>
+        <div class="account-switch-menu">
+          <a href="account.html">🧍 Buyer Account</a>
+          <a href="seller-account.html">🏭 Seller Account</a>
+        </div>
+      </div>
+      <a href="auth.html" class="btn btn-outline btn-sm">Log In</a>
+      <a href="auth.html#register" class="btn btn-primary btn-sm">Sign Up</a>
+      <button class="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Cart</div>
+    <h1>Your Cart</h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container two-col">
+    <div>
+      <div id="cart-items"></div>
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h3>Order summary</h3>
+        <div class="divider"></div>
+        <div class="summary-row"><span>Items</span><b id="sum-items">0</b></div>
+        <div class="summary-row"><span>Total weight</span><b id="sum-weight">0 kg</b></div>
+        <div class="summary-row"><span>Subtotal</span><b id="sum-subtotal">₼0.00</b></div>
+        <div class="summary-row"><span>Platform commission (3%)</span><b id="sum-fee">₼0.00</b></div>
+        <div class="summary-row total"><span>Estimated total</span><b id="sum-total">₼0.00</b></div>
+
+        <div class="field" style="margin-top:16px;">
+          <label for="cart-msg">Note to seller(s) <span class="hint">— optional</span></label>
+          <textarea id="cart-msg" rows="3" placeholder="Preferred pickup date, packaging notes, etc."></textarea>
+        </div>
+
+        <button class="btn btn-primary btn-block" id="checkout-btn">Send Purchase Request</button>
+        <p class="hint" style="text-align:center;margin-top:10px;">Sends one request per item to its seller. Funds are only charged once a seller accepts and escrow is set up.</p>
+        <p class="form-note muted" style="display:none;margin-top:12px;text-align:center;"></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo" style="color:#fff;"><span class="logo-mark">♻</span> GreenLoop</div>
+        <p>GreenLoop connects households, businesses and manufacturers with recyclers and industrial buyers — turning discarded plastic, paper, metal, glass, textile and e-waste back into resources.</p>
+        <div class="social-row"><a href="#">f</a><a href="#">in</a><a href="#">ig</a></div>
+      </div>
+      <div>
+        <h5>Marketplace</h5>
+        <ul>
+          <li><a href="marketplace.html?cat=plastic">Plastic</a></li>
+          <li><a href="marketplace.html?cat=paper">Paper &amp; Cardboard</a></li>
+          <li><a href="marketplace.html?cat=metal">Metal</a></li>
+          <li><a href="marketplace.html?cat=glass">Glass</a></li>
+          <li><a href="marketplace.html?cat=textile">Textile</a></li>
+          <li><a href="marketplace.html?cat=electronics">Electronics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="sell.html">List Your Waste</a></li>
+          <li><a href="vendor.html">Become a Buyer/Partner</a></li>
+          <li><a href="analytics.html">Ecological Analytics</a></li>
+          <li><a href="account.html">My Account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Trust &amp; Safety</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>Baku, Azerbaijan</li>
+          <li>hello@greenloop.market</li>
+          <li>+994 12 000 00 00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GreenLoop Circular Marketplace. All rights reserved.</span>
+      <span>Pilot phase — Baku &amp; Absheron region</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+  function renderCart() {
+    var cart = GL.getCart();
+    var wrap = document.getElementById('cart-items');
+    var checkoutBtn = document.getElementById('checkout-btn');
+
+    if (!cart.length) {
+      wrap.innerHTML =
+        '<div class="cart-empty">' +
+          '<div class="big-ico">🛒</div>' +
+          '<h3>Your cart is empty</h3>' +
+          '<p>Browse the marketplace and add materials you want to buy.</p>' +
+          '<a href="marketplace.html" class="btn btn-primary">Browse Marketplace</a>' +
+        '</div>';
+      checkoutBtn.disabled = true;
+      updateSummary(cart);
+      return;
+    }
+    checkoutBtn.disabled = false;
+
+    wrap.innerHTML = cart.map(function (item) {
+      return '' +
+        '<div class="cart-row" data-row="' + item.id + '">' +
+          '<div class="thumb ' + item.matClass + '">' + item.icon + '</div>' +
+          '<div class="info">' +
+            '<b>' + item.title + '</b>' +
+            '<span>Seller: ' + item.seller + ' · ₼' + item.price + ' / kg</span>' +
+          '</div>' +
+          '<div class="qty">' +
+            '<input type="number" min="0.1" step="0.1" value="' + item.weight + '" data-weight-input="' + item.id + '"> kg' +
+          '</div>' +
+          '<div class="line-total" data-line-total="' + item.id + '">₼' + (item.weight * item.price).toFixed(2) + '</div>' +
+          '<button class="remove-btn" data-remove="' + item.id + '" title="Remove">✕</button>' +
+        '</div>';
+    }).join('');
+
+    wrap.querySelectorAll('[data-weight-input]').forEach(function (input) {
+      input.addEventListener('input', function () {
+        var id = input.dataset.weightInput;
+        var w = parseFloat(input.value) || 0.1;
+        GL.updateCartWeight(id, w);
+        var cart2 = GL.getCart();
+        var item = cart2.find(function (c) { return c.id === id; });
+        document.querySelector('[data-line-total="' + id + '"]').textContent = '₼' + (item.weight * item.price).toFixed(2);
+        updateSummary(cart2);
+      });
+    });
+    wrap.querySelectorAll('[data-remove]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        GL.removeFromCart(btn.dataset.remove);
+        renderCart();
+      });
+    });
+
+    updateSummary(cart);
+  }
+
+  function updateSummary(cart) {
+    var weight = cart.reduce(function (s, i) { return s + i.weight; }, 0);
+    var subtotal = cart.reduce(function (s, i) { return s + i.weight * i.price; }, 0);
+    var fee = subtotal * 0.03;
+    document.getElementById('sum-items').textContent = cart.length;
+    document.getElementById('sum-weight').textContent = Math.round(weight * 10) / 10 + ' kg';
+    document.getElementById('sum-subtotal').textContent = '₼' + subtotal.toFixed(2);
+    document.getElementById('sum-fee').textContent = '₼' + fee.toFixed(2);
+    document.getElementById('sum-total').textContent = '₼' + (subtotal + fee).toFixed(2);
+  }
+
+  document.getElementById('checkout-btn').addEventListener('click', function () {
+    var cart = GL.getCart();
+    if (!cart.length) return;
+    var msg = document.getElementById('cart-msg').value;
+    var count = cart.length;
+    GL.checkoutCart(msg);
+    var note = document.querySelector('.form-note');
+    note.innerHTML = '✓ Request' + (count > 1 ? 's' : '') + ' sent to ' + count + ' seller' + (count > 1 ? 's' : '') + ' — track status under <a href="account.html" style="color:var(--green-700);font-weight:600;">My Account → Sent Requests</a>.';
+    note.style.display = 'block';
+    renderCart();
+  });
+
+  renderCart();
+</script>
+</body>
+</html>

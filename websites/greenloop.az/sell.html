@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post a Listing — GreenLoop</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-links"><span>📍 Piloting in Baku &amp; Absheron</span><span>Mon–Sat, 09:00–19:00</span></div>
+    <div class="topbar-links"><a href="contact.html">Support</a><a href="vendor.html">Become a Partner</a></div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="logo"><span class="logo-mark">♻</span> GreenLoop</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="sell.html" class="active">Sell Waste</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="vendor.html">Become a Partner</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="account.html?tab=wishlist" class="icon-btn" title="Wishlist">♡</a>
+      <a href="cart.html" class="icon-btn" title="Cart" style="position:relative;">🛒<span class="badge-dot" id="cart-badge" style="display:none;">0</span></a>
+      <div class="account-switch">
+        <a href="account.html" class="icon-btn" title="Buyer Account">☺</a>
+        <div class="account-switch-menu">
+          <a href="account.html">🧍 Buyer Account</a>
+          <a href="seller-account.html">🏭 Seller Account</a>
+        </div>
+      </div>
+      <a href="auth.html" class="btn btn-outline btn-sm">Log In</a>
+      <a href="auth.html#register" class="btn btn-primary btn-sm">Sign Up</a>
+      <button class="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Sell Waste</div>
+    <h1>List a waste material</h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container two-col">
+    <div>
+      <form data-demo-form data-success-message="Your listing has been submitted for review!">
+        <div class="form-card">
+          <h3>1. Material</h3>
+          <p class="muted">Choose the category that best matches your material.</p>
+          <div class="radio-tiles" style="margin-bottom:18px;">
+            <label class="radio-tile"><input type="radio" name="cat" checked>🧴<br>Plastic</label>
+            <label class="radio-tile"><input type="radio" name="cat">📦<br>Paper &amp; Cardboard</label>
+            <label class="radio-tile"><input type="radio" name="cat">⚙️<br>Metal</label>
+            <label class="radio-tile"><input type="radio" name="cat">🍾<br>Glass</label>
+            <label class="radio-tile"><input type="radio" name="cat">👕<br>Textile</label>
+            <label class="radio-tile"><input type="radio" name="cat">🔌<br>Electronics</label>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="subtype">Material subtype</label>
+              <input id="subtype" placeholder="e.g. PET, HDPE, copper, cotton">
+            </div>
+            <div class="field">
+              <label for="grade">Quality grade</label>
+              <select id="grade">
+                <option>Grade A — sorted, uncontaminated</option>
+                <option>Grade B — lightly mixed</option>
+                <option>Grade C — mixed / needs sorting</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="weight">Weight (kg) <span class="hint">— between 0.1 and 10,000 kg</span></label>
+              <input id="weight" type="number" min="0.1" max="10000" step="0.1" placeholder="e.g. 480">
+            </div>
+            <div class="field">
+              <label for="price">Asking price (₼ / kg)</label>
+              <input id="price" type="number" step="0.01" placeholder="e.g. 0.42">
+            </div>
+          </div>
+
+          <div class="field field-full">
+            <label for="desc">Description</label>
+            <textarea id="desc" rows="4" placeholder="Describe condition, sorting, contamination level, packaging, etc."></textarea>
+          </div>
+        </div>
+
+        <div class="form-card" style="margin-top:20px;">
+          <h3>2. Photos</h3>
+          <p class="muted">Add 1 to 5 photos — clear, well-lit photos get more offers.</p>
+          <div class="upload-box">
+            <b>Click to upload</b> or drag photos here<br>
+            <span style="font-size:.78rem;">JPG or PNG, up to 5 photos, minimum 1 required</span>
+          </div>
+        </div>
+
+        <div class="form-card" style="margin-top:20px;">
+          <h3>3. Location</h3>
+          <div class="form-grid">
+            <div class="field">
+              <label for="loc-mode">How should we set your location?</label>
+              <select id="loc-mode">
+                <option>Use my current location automatically</option>
+                <option>Enter address manually</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="addr">Address / district</label>
+              <input id="addr" placeholder="e.g. Yasamal, Baku">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card" style="margin-top:20px;">
+          <button class="btn btn-primary btn-block" type="submit">Publish Listing</button>
+          <p class="form-note muted" style="display:none;margin-top:12px;text-align:center;"></p>
+          <p class="muted" style="font-size:.8rem;margin:12px 0 0;text-align:center;">Listings are checked by our moderation team before going live, usually within a few hours.</p>
+        </div>
+      </form>
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h3>Tips for a fast sale</h3>
+        <ul style="display:flex;flex-direction:column;gap:12px;margin-top:10px;">
+          <li>✔ Sort and clean the material before listing — it raises both your price and your CO₂ score.</li>
+          <li>✔ Weigh accurately: listings with precise weight get 2× more offers.</li>
+          <li>✔ Add at least 3 photos, including one close-up of the material texture.</li>
+          <li>✔ Reply to offers within a few hours to keep your response rating high.</li>
+        </ul>
+      </div>
+      <div class="panel" style="margin-top:18px;">
+        <h3>What happens after you publish</h3>
+        <ol style="display:flex;flex-direction:column;gap:10px;margin-top:10px;padding-left:18px;">
+          <li>Our team reviews the listing for accuracy and category fit.</li>
+          <li>It becomes visible to recyclers and buyers who match your filters.</li>
+          <li>You receive offers you can accept, counter, or decline.</li>
+          <li>Payment is held in escrow until pickup is confirmed.</li>
+        </ol>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo" style="color:#fff;"><span class="logo-mark">♻</span> GreenLoop</div>
+        <p>GreenLoop connects households, businesses and manufacturers with recyclers and industrial buyers — turning discarded plastic, paper, metal, glass, textile and e-waste back into resources.</p>
+        <div class="social-row"><a href="#">f</a><a href="#">in</a><a href="#">ig</a></div>
+      </div>
+      <div>
+        <h5>Marketplace</h5>
+        <ul>
+          <li><a href="marketplace.html?cat=plastic">Plastic</a></li>
+          <li><a href="marketplace.html?cat=paper">Paper &amp; Cardboard</a></li>
+          <li><a href="marketplace.html?cat=metal">Metal</a></li>
+          <li><a href="marketplace.html?cat=glass">Glass</a></li>
+          <li><a href="marketplace.html?cat=textile">Textile</a></li>
+          <li><a href="marketplace.html?cat=electronics">Electronics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="sell.html">List Your Waste</a></li>
+          <li><a href="vendor.html">Become a Buyer/Partner</a></li>
+          <li><a href="analytics.html">Ecological Analytics</a></li>
+          <li><a href="account.html">My Account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Trust &amp; Safety</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>Baku, Azerbaijan</li>
+          <li>hello@greenloop.market</li>
+          <li>+994 12 000 00 00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GreenLoop Circular Marketplace. All rights reserved.</span>
+      <span>Pilot phase — Baku &amp; Absheron region</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

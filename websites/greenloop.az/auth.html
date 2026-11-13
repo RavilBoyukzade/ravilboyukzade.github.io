@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log In or Sign Up — GreenLoop</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="logo"><span class="logo-mark">♻</span> GreenLoop</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="marketplace.html">Marketplace</a>
+      <a href="sell.html">Sell Waste</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="vendor.html">Become a Partner</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions"></div>
+  </div>
+</header>
+
+<section class="section" style="max-width:520px;margin:0 auto;">
+  <div class="container" style="max-width:520px;">
+    <div data-tabs>
+      <div class="tab-row" style="justify-content:center;">
+        <button class="tab-btn active" data-tab="login">Log In</button>
+        <button class="tab-btn" data-tab="register">Sign Up</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="login">
+        <form class="form-card" data-demo-form data-success-message="Logged in — welcome back!">
+          <div class="field"><label for="l-email">Email or phone</label><input id="l-email" required></div>
+          <div class="field"><label for="l-pass">Password</label><input id="l-pass" type="password" required></div>
+          <div style="display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:16px;">
+            <label style="display:flex;align-items:center;gap:6px;"><input type="checkbox"> Remember me</label>
+            <a href="#" style="color:var(--green-700);">Forgot password?</a>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Log In</button>
+          <p class="form-note muted" style="display:none;margin-top:12px;text-align:center;"></p>
+        </form>
+      </div>
+
+      <div class="tab-panel" data-panel="register">
+        <form class="form-card" data-demo-form data-success-message="Account created — check your email or phone for a verification code.">
+          <div class="field">
+            <label>Account type</label>
+            <div class="radio-tiles" style="grid-template-columns:1fr 1fr;">
+              <label class="radio-tile"><input type="radio" name="acct" value="individual" checked>Individual</label>
+              <label class="radio-tile"><input type="radio" name="acct" value="business">Business</label>
+            </div>
+          </div>
+
+          <div class="field"><label for="r-name" id="r-name-label">Full name</label><input id="r-name" required></div>
+
+          <div class="field" data-account-fields="individual">
+            <label for="r-fin">FIN code <span class="hint">— from your ID card or passport</span></label>
+            <input id="r-fin" maxlength="7" placeholder="e.g. 7ABC123" required>
+          </div>
+
+          <div class="field" data-account-fields="business" style="display:none;">
+            <label for="r-voen">Tax ID (VÖEN)</label>
+            <input id="r-voen" placeholder="10-digit business tax ID">
+          </div>
+
+          <div class="field"><label for="r-email">Email</label><input id="r-email" type="email" required></div>
+          <div class="field"><label for="r-phone">Phone number</label><input id="r-phone" type="tel" required></div>
+          <div class="field"><label for="r-pass">Password</label><input id="r-pass" type="password" required></div>
+          <p class="hint" style="margin-bottom:14px;">We'll send a one-time code by SMS or email to verify your account (2FA).</p>
+          <button class="btn btn-primary btn-block" type="submit">Create Account</button>
+          <p class="form-note muted" style="display:none;margin-top:12px;text-align:center;"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" style="padding-top:28px;">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;">
+      <span>© 2026 GreenLoop Circular Marketplace. All rights reserved.</span>
+      <span>Pilot phase — Baku &amp; Absheron region</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

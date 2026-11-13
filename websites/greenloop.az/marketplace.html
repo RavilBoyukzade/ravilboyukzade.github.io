@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketplace — GreenLoop</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-links"><span>📍 Piloting in Baku &amp; Absheron</span><span>Mon–Sat, 09:00–19:00</span></div>
+    <div class="topbar-links"><a href="contact.html">Support</a><a href="vendor.html">Become a Partner</a></div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="logo"><span class="logo-mark">♻</span> GreenLoop</a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="marketplace.html" class="active">Marketplace</a>
+      <a href="sell.html">Sell Waste</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="vendor.html">Become a Partner</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="account.html?tab=wishlist" class="icon-btn" title="Wishlist">♡</a>
+      <a href="cart.html" class="icon-btn" title="Cart" style="position:relative;">🛒<span class="badge-dot" id="cart-badge" style="display:none;">0</span></a>
+      <div class="account-switch">
+        <a href="account.html" class="icon-btn" title="Buyer Account">☺</a>
+        <div class="account-switch-menu">
+          <a href="account.html">🧍 Buyer Account</a>
+          <a href="seller-account.html">🏭 Seller Account</a>
+        </div>
+      </div>
+      <a href="auth.html" class="btn btn-outline btn-sm">Log In</a>
+      <a href="auth.html#register" class="btn btn-primary btn-sm">Sign Up</a>
+      <button class="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Marketplace</div>
+    <h1>Marketplace</h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="shop-layout">
+
+      <!-- FILTERS -->
+      <aside data-filter-panel>
+        <div class="filter-box">
+          <h4>Material category</h4>
+          <ul class="filter-list">
+            <li><label><input type="checkbox" data-filter="category" value="plastic" checked> Plastic <span class="muted">(312)</span></label></li>
+            <li><label><input type="checkbox" data-filter="category" value="paper" checked> Paper &amp; Cardboard <span class="muted">(268)</span></label></li>
+            <li><label><input type="checkbox" data-filter="category" value="metal" checked> Metal <span class="muted">(195)</span></label></li>
+            <li><label><input type="checkbox" data-filter="category" value="glass" checked> Glass <span class="muted">(121)</span></label></li>
+            <li><label><input type="checkbox" data-filter="category" value="textile" checked> Textile <span class="muted">(167)</span></label></li>
+            <li><label><input type="checkbox" data-filter="category" value="electronics" checked> Electronics <span class="muted">(177)</span></label></li>
+          </ul>
+        </div>
+
+        <div class="filter-box">
+          <h4>Weight available (kg)</h4>
+          <div class="range-row">
+            <input id="weight-min" type="number" placeholder="Min" value="0.1" step="0.1">
+            <input id="weight-max" type="number" placeholder="Max" value="10000">
+          </div>
+        </div>
+
+        <div class="filter-box">
+          <h4>Distance from me</h4>
+          <ul class="filter-list">
+            <li><label><input type="radio" name="dist"> Within 5 km</label></li>
+            <li><label><input type="radio" name="dist" checked> Within 15 km</label></li>
+            <li><label><input type="radio" name="dist"> Within 50 km</label></li>
+            <li><label><input type="radio" name="dist"> Any distance</label></li>
+          </ul>
+        </div>
+
+        <div class="filter-box">
+          <h4>Quality grade</h4>
+          <div class="chip-row">
+            <span class="chip active" data-grade="a">Grade A</span>
+            <span class="chip active" data-grade="b">Grade B</span>
+            <span class="chip active" data-grade="c">Grade C</span>
+            <span class="chip active" data-grade="mixed">Mixed / Unsorted</span>
+          </div>
+        </div>
+
+        <div class="filter-box">
+          <h4>Listed within</h4>
+          <ul class="filter-list">
+            <li><label><input type="radio" name="date" checked> Any time</label></li>
+            <li><label><input type="radio" name="date"> Last 24 hours</label></li>
+            <li><label><input type="radio" name="date"> Last 7 days</label></li>
+            <li><label><input type="radio" name="date"> Last 30 days</label></li>
+          </ul>
+        </div>
+
+        <div class="filter-box">
+          <h4>Trust &amp; certification</h4>
+          <ul class="filter-list">
+            <li><label><input type="checkbox" id="filter-certified"> Certified sellers only</label></li>
+            <li><label><input type="checkbox"> Rated 4★ and above</label></li>
+          </ul>
+        </div>
+
+        <button class="btn btn-primary btn-block" id="apply-filters-btn">Apply Filters</button>
+      </aside>
+
+      <!-- LISTINGS -->
+      <div>
+        <div class="toolbar">
+          <button class="btn btn-outline btn-sm" data-filter-toggle style="display:none;">Filters</button>
+          <span class="count" id="results-count">Showing 11 of 11 listings</span>
+          <select id="sort-select">
+            <option value="newest">Sort: Newest first</option>
+            <option value="price-asc">Sort: Price — low to high</option>
+            <option value="price-desc">Sort: Price — high to low</option>
+            <option value="co2">Sort: Highest CO₂ impact</option>
+          </select>
+        </div>
+
+        <div class="grid-3" id="listing-grid">
+
+          <div class="listing-card" data-category="plastic" data-grade="a" data-certified="true" data-weight="480" data-price="0.42" data-co2="0.6" data-id="plastic-1" data-seller="EcoPlast Baku" data-default-weight="480" data-title="Baled clear PET bottles, 480 kg" data-matclass="mat-plastic" data-icon="🧴">
+            <a href="product.html" class="listing-media mat-plastic">
+              <span class="cert-badge">✓ Certified</span>
+              <span class="co2-chip">🍃 <b>0.6 kg/kg</b> CO₂ saved</span>
+              <span class="mat-icon-badge">🧴</span>
+            </a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Plastic · PET</span>
+              <h3 class="listing-title">Baled clear PET bottles, 480 kg</h3>
+              <div class="listing-meta"><span>📍 Yasamal, Baku</span><span>⚖ 480 kg</span><span>Grade A</span></div>
+              <div class="listing-foot">
+                <div class="listing-price">₼0.42 <small>/ kg</small></div>
+                <div class="seller-mini"><span class="stars">★★★★★</span> 4.8</div>
+              </div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart style="margin-top:10px;">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="listing-card" data-category="plastic" data-grade="b" data-certified="false" data-weight="210" data-price="0.31" data-co2="0.5" data-id="plastic-2" data-seller="Yasamal Recyclers" data-default-weight="210" data-title="Mixed HDPE containers, 210 kg" data-matclass="mat-plastic" data-icon="🧴">
+            <a href="product.html" class="listing-media mat-plastic">
+              <span class="co2-chip">🍃 <b>0.5 kg/kg</b> CO₂ saved</span>
+              <span class="mat-icon-badge">🧴</span>
+            </a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Plastic · HDPE</span>
+              <h3 class="listing-title">Mixed HDPE containers, 210 kg</h3>
+              <div class="listing-meta"><span>📍 Nizami, Baku</span><span>⚖ 210 kg</span><span>Grade B</span></div>
+              <div class="listing-foot">
+                <div class="listing-price">₼0.31 <small>/ kg</small></div>
+                <div class="seller-mini"><span class="stars">★★★★☆</span> 4.3</div>
+              </div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart style="margin-top:10px;">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="listing-card" data-category="paper" data-grade="a" data-certified="true" data-weight="1200" data-price="0.18" data-co2="0.9" data-id="paper-3" data-seller="Baku Paper Mill" data-default-weight="1200" data-title="Sorted corrugated cardboard, 1.2 t" data-matclass="mat-paper" data-icon="📦">
+            <a href="product.html" class="listing-media mat-paper">
+              <span class="cert-badge">✓ Certified</span>
+              <span class="co2-chip">🍃 <b>0.9 kg/kg</b> CO₂ saved</span>
+              <span class="mat-icon-badge">📦</span>
+            </a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Paper · Cardboard</span>
+              <h3 class="listing-title">Sorted corrugated cardboard, 1.2 t</h3>
+              <div class="listing-meta"><span>📍 Sabunchu, Baku</span><span>⚖ 1,200 kg</span><span>Grade A</span></div>
+              <div class="listing-foot">
+                <div class="listing-price">₼0.18 <small>/ kg</small></div>
+                <div class="seller-mini"><span class="stars">★★★★★</span> 4.6</div>
+              </div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart style="margin-top:10px;">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="listing-card" data-category="paper" data-grade="a" data-certified="false" data-weight="340" data-price="0.15" data-co2="0.7" data-id="paper-4" data-seller="Sabunchu Sort Co." data-default-weight="340" data-title="Shredded office paper, 340 kg" data-matclass="mat-paper" data-icon="📦">
+            <a href="product.html" class="listing-media mat-paper">
+              <span class="co2-chip">🍃 <b>0.7 kg/kg</b> CO₂ saved</span>
+              <span class="mat-icon-badge">📦</span>
+            </a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Paper · Office paper</span>
+              <h3 class="listing-title">Shredded office paper, 340 kg</h3>
+              <div class="listing-meta"><span>📍 Nasimi, Baku</span><span>⚖ 340 kg</span><span>Grade A</span></div>
+              <div class="listing-foot">
+                <div class="listing-price">₼0.15 <small>/ kg</small></div>
+                <div class="seller-mini"><span class="stars">★★★★☆</span> 4.1</div>
+              </div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart style="margin-top:10px;">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="listing-card" data-category="metal" data-grade="a" data-certified="true" data-weight="65" data-price="9.20" data-co2="1.8" data-id="metal-5" data-seller="MetalWorks MMC" data-default-weight="65" data-title="Clean copper wire scrap, 65 kg" data-matclass="mat-metal" data-icon="⚙️">
+            <a href="product.html" class="listing-media mat-metal">
+              <span class="cert-badge">✓ Certified</span>
+              <span class="co2-chip">🍃 <b>1.8 kg/kg</b> CO₂ saved</span>
+              <span class="mat-icon-badge">⚙️</span>
+            </a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Metal · Copper</span>
+              <h3 class="listing-title">Clean copper wire scrap, 65 kg</h3>
+              <div class="listing-meta"><span>📍 Nasimi, Baku</span><span>⚖ 65 kg</span><span>Grade A</span></div>
+              <div class="listing-foot">
+                <div class="listing-price">₼9.20 <small>/ kg</small></div>
+                <div class="seller-mini"><span class="stars">★★★★★</span> 5.0</div>
+              </div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart style="margin-top:10px;">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="listing-card" data-category="metal" data-grade="b" data-certified="false" data-weight="150" data-price="1.85" data-co2="1.2" data-id="metal-6" data-seller="Absheron Scrap Ltd." data-default-weight="150" data-title="Aluminium cans, compressed, 150 kg" data-matclass="mat-metal" data-icon="⚙️">
+            <a href="product.html" class="listing-media mat-metal">
+              <span class="co2-chip">🍃 <b>1.2 kg/kg</b> CO₂ saved</span>
+              <span class="mat-icon-badge">⚙️</span>
+            </a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Metal · Aluminium</span>
+              <h3 class="listing-title">Aluminium cans, compressed, 150 kg</h3>
+              <div class="listing-meta"><span>📍 Absheron</span><span>⚖ 150 kg</span><span>Grade B</span></div>
+              <div class="listing-foot">
+                <div class="listing-price">₼1.85 <small>/ kg</small></div>
+                <div class="seller-mini"><span class="stars">★★★★☆</span> 4.4</div>
+              </div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart style="margin-top:10px;">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="listing-card" data-category="glass" data-grade="a" data-certified="true" data-weight="600" data-price="0.08" data-co2="0.3" data-id="glass-7" data-seller="EcoGlass Baku" data-default-weight="600" data-title="Sorted green glass bottles, 600 kg" data-matclass="mat-glass" data-icon="🍾">
+            <a href="product.html" class="listing-media mat-glass">
+              <span class="cert-badge">✓ Certified</span>
+              <span class="co2-chip">🍃 <b>0.3 kg/kg</b> CO₂ saved</span>
+              <span class="mat-icon-badge">🍾</span>
+            </a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Glass · Bottles</span>
+              <h3 class="listing-title">Sorted green glass bottles, 600 kg</h3>
+              <div class="listing-meta"><span>📍 Xatai, Baku</span><span>⚖ 600 kg</span><span>Grade A</span></div>
+              <div class="listing-foot">
+                <div class="listing-price">₼0.08 <small>/ kg</small></div>
+                <div class="seller-mini"><span class="stars">★★★★★</span> 4.7</div>
+              </div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart style="margin-top:10px;">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="listing-card" data-category="textile" data-grade="b" data-certified="false" data-weight="90" data-price="0.55" data-co2="3.6" data-id="textile-8" data-seller="ReTex Absheron" data-default-weight="90" data-title="Used cotton garments, 90 kg" data-matclass="mat-textile" data-icon="👕">
+            <a href="product.html" class="listing-media mat-textile">
+              <span class="co2-chip">🍃 <b>3.6 kg/kg</b> CO₂ saved</span>
+              <span class="mat-icon-badge">👕</span>
+            </a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Textile · Cotton blend</span>
+              <h3 class="listing-title">Used cotton garments, 90 kg</h3>
+              <div class="listing-meta"><span>📍 Yasamal, Baku</span><span>⚖ 90 kg</span><span>Grade B</span></div>
+              <div class="listing-foot">
+                <div class="listing-price">₼0.55 <small>/ kg</small></div>
+                <div class="seller-mini"><span class="stars">★★★★☆</span> 4.0</div>
+              </div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart style="margin-top:10px;">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="listing-card" data-category="textile" data-grade="a" data-certified="true" data-weight="220" data-price="0.40" data-co2="3.1" data-id="textile-9" data-seller="Fabric Loop LLC" data-default-weight="220" data-title="Factory offcut textile scraps, 220 kg" data-matclass="mat-textile" data-icon="👕">
+            <a href="product.html" class="listing-media mat-textile">
+              <span class="cert-badge">✓ Certified</span>
+              <span class="co2-chip">🍃 <b>3.1 kg/kg</b> CO₂ saved</span>
+              <span class="mat-icon-badge">👕</span>
+            </a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Textile · Mixed fabric</span>
+              <h3 class="listing-title">Factory offcut textile scraps, 220 kg</h3>
+              <div class="listing-meta"><span>📍 Sabunchu, Baku</span><span>⚖ 220 kg</span><span>Grade A</span></div>
+              <div class="listing-foot">
+                <div class="listing-price">₼0.40 <small>/ kg</small></div>
+                <div class="seller-mini"><span class="stars">★★★★★</span> 4.9</div>
+              </div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart style="margin-top:10px;">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="listing-card" data-category="electronics" data-grade="b" data-certified="true" data-weight="40" data-price="1.10" data-co2="2.4" data-id="electronics-10" data-seller="GreenTech Recycling" data-default-weight="40" data-title="Small household e-waste lot, 40 kg" data-matclass="mat-electronics" data-icon="🔌">
+            <a href="product.html" class="listing-media mat-electronics">
+              <span class="cert-badge">✓ Certified</span>
+              <span class="co2-chip">🍃 <b>2.4 kg/kg</b> CO₂ saved</span>
+              <span class="mat-icon-badge">🔌</span>
+            </a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Electronics · Mixed e-waste</span>
+              <h3 class="listing-title">Small household e-waste lot, 40 kg</h3>
+              <div class="listing-meta"><span>📍 Absheron</span><span>⚖ 40 kg</span><span>Grade B</span></div>
+              <div class="listing-foot">
+                <div class="listing-price">₼1.10 <small>/ kg</small></div>
+                <div class="seller-mini"><span class="stars">★★★★☆</span> 4.2</div>
+              </div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart style="margin-top:10px;">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="listing-card" data-category="electronics" data-grade="c" data-certified="false" data-weight="75" data-price="2.30" data-co2="1.9" data-id="electronics-11" data-seller="Nizami E-Recyclers" data-default-weight="75" data-title="Scrap cable &amp; wiring bundle, 75 kg" data-matclass="mat-electronics" data-icon="🔌">
+            <a href="product.html" class="listing-media mat-electronics">
+              <span class="co2-chip">🍃 <b>1.9 kg/kg</b> CO₂ saved</span>
+              <span class="mat-icon-badge">🔌</span>
+            </a>
+            <div class="listing-body">
+              <span class="listing-cat-tag">Electronics · Cables</span>
+              <h3 class="listing-title">Scrap cable &amp; wiring bundle, 75 kg</h3>
+              <div class="listing-meta"><span>📍 Nizami, Baku</span><span>⚖ 75 kg</span><span>Grade C</span></div>
+              <div class="listing-foot">
+                <div class="listing-price">₼2.30 <small>/ kg</small></div>
+                <div class="seller-mini"><span class="stars">★★★★☆</span> 4.3</div>
+              </div>
+              <button class="btn btn-outline btn-sm btn-block" data-add-cart style="margin-top:10px;">+ Add to Cart</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pagination">
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">…</a>
+          <a href="#">104</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo" style="color:#fff;"><span class="logo-mark">♻</span> GreenLoop</div>
+        <p>GreenLoop connects households, businesses and manufacturers with recyclers and industrial buyers — turning discarded plastic, paper, metal, glass, textile and e-waste back into resources.</p>
+        <div class="social-row"><a href="#">f</a><a href="#">in</a><a href="#">ig</a></div>
+      </div>
+      <div>
+        <h5>Marketplace</h5>
+        <ul>
+          <li><a href="marketplace.html?cat=plastic">Plastic</a></li>
+          <li><a href="marketplace.html?cat=paper">Paper &amp; Cardboard</a></li>
+          <li><a href="marketplace.html?cat=metal">Metal</a></li>
+          <li><a href="marketplace.html?cat=glass">Glass</a></li>
+          <li><a href="marketplace.html?cat=textile">Textile</a></li>
+          <li><a href="marketplace.html?cat=electronics">Electronics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="sell.html">List Your Waste</a></li>
+          <li><a href="vendor.html">Become a Buyer/Partner</a></li>
+          <li><a href="analytics.html">Ecological Analytics</a></li>
+          <li><a href="account.html">My Account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Trust &amp; Safety</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>Baku, Azerbaijan</li>
+          <li>hello@greenloop.market</li>
+          <li>+994 12 000 00 00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GreenLoop Circular Marketplace. All rights reserved.</span>
+      <span>Pilot phase — Baku &amp; Absheron region</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
