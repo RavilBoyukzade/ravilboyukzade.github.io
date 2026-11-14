@@ -2,14 +2,48 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* Mobile nav toggle */
+  /* Mobile nav toggle (slide-in drawer + backdrop) */
   var burger = document.querySelector('.burger');
   var nav = document.querySelector('.main-nav');
-  if (burger && nav) {
-    burger.addEventListener('click', function () {
-      nav.classList.toggle('nav-open');
-    });
+  var backdrop = document.querySelector('[data-nav-backdrop]');
+  var filterPanelEl = document.querySelector('[data-filter-panel]');
+
+  function syncOverlay() {
+    var navOpen = nav && nav.classList.contains('nav-open');
+    var filtersOpen = filterPanelEl && filterPanelEl.classList.contains('is-open');
+    if (backdrop) backdrop.classList.toggle('show', !!(navOpen || filtersOpen));
+    document.body.classList.toggle('nav-locked', !!(navOpen || filtersOpen));
+    if (burger) {
+      burger.setAttribute('aria-expanded', navOpen ? 'true' : 'false');
+      burger.textContent = navOpen ? '\u2715' : '\u2630';
+    }
   }
+  function closeOverlays() {
+    if (nav) nav.classList.remove('nav-open');
+    if (filterPanelEl) filterPanelEl.classList.remove('is-open');
+    syncOverlay();
+  }
+  if (burger && nav) {
+    burger.setAttribute('aria-expanded', 'false');
+    burger.addEventListener('click', function () {
+      if (filterPanelEl) filterPanelEl.classList.remove('is-open');
+      nav.classList.toggle('nav-open');
+      syncOverlay();
+    });
+    nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeOverlays); });
+  }
+  if (backdrop) backdrop.addEventListener('click', closeOverlays);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeOverlays(); });
+  window.addEventListener('resize', function () { if (window.innerWidth > 960) closeOverlays(); });
+
+  /* Wrap wide tables so they scroll inside their block instead of breaking the page */
+  document.querySelectorAll('table.data-table').forEach(function (t) {
+    if (t.parentElement && t.parentElement.classList.contains('table-scroll')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'table-scroll';
+    t.parentNode.insertBefore(wrap, t);
+    wrap.appendChild(t);
+  });
 
   /* Buyer/Seller account switcher: click-to-open (in addition to hover) for touch devices */
   document.querySelectorAll('.account-switch > .icon-btn').forEach(function (icon) {
@@ -63,8 +97,17 @@ document.addEventListener('DOMContentLoaded', function () {
   var filterToggle = document.querySelector('[data-filter-toggle]');
   var filterPanel = document.querySelector('[data-filter-panel]');
   if (filterToggle && filterPanel) {
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'filter-close';
+    closeBtn.setAttribute('aria-label', 'Close filters');
+    closeBtn.textContent = '\u2715';
+    closeBtn.addEventListener('click', closeOverlays);
+    filterPanel.insertBefore(closeBtn, filterPanel.firstChild);
     filterToggle.addEventListener('click', function () {
+      if (nav) nav.classList.remove('nav-open');
       filterPanel.classList.toggle('is-open');
+      syncOverlay();
     });
   }
 
@@ -177,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (certBox) certBox.addEventListener('change', applyFilters);
     if (weightMin) weightMin.addEventListener('input', applyFilters);
     if (weightMax) weightMax.addEventListener('input', applyFilters);
-    if (applyBtn) applyBtn.addEventListener('click', function (e) { e.preventDefault(); applyFilters(); });
+    if (applyBtn) applyBtn.addEventListener('click', function (e) { e.preventDefault(); applyFilters(); closeOverlays(); });
     if (sortSelect) sortSelect.addEventListener('change', applySort);
 
     /* Pre-select category coming from a homepage link like marketplace.html?cat=plastic */
